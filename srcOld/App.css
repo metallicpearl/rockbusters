@@ -1,0 +1,75 @@
+.App {
+  text-align: center;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.App-background {
+  height: 200px;
+  opacity: 60%;
+  position:absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 10;
+  margin: auto;
+
+ 
+
+  padding-top: 0px;
+  -webkit-user-drag: none;
+  
+}
+
+.App-logo {
+  height: 950px;
+  opacity: 70%;
+  pointer-events: none;
+  user-select: none;
+  resize: both;
+  -webkit-user-drag: none;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+    margin-top: -30px;
+  }
+}
+
+.Answer-Button
+{
+  background-color: aqua;
+  width: 5cm;
+  height: 2cm;
+}
+
+.App-header {
+  background-color: #b3d2b0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.App-Card {
+  height: fit-content;
+}
+
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
