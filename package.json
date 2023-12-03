@@ -84,7 +84,11 @@
 
     "test": "react-scripts test",
 
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+
+    "predeploy" : "npm run build",
+
+    "deploy" : "gh-pages -d build"
 
   },
 
@@ -126,9 +130,13 @@
 
   "devDependencies": {
 
-    "@types/jquery": "^3.5.29"
+    "@types/jquery": "^3.5.29",
 
-  }
+    "gh-pages": "^6.1.0"
+
+  },
+
+  "homepage": "http://metallicpearl.github.io/reactapp"
 
 }
 
