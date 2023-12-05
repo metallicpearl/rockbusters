@@ -388,7 +388,7 @@ function App() {
 
 
 
-        <span id="main-Content" hidden={mainContentHiddenState}>
+        <span id="main-Content" hidden={mainContentHiddenState}> 
             <img src={rb2} className="App-background" />
           
           <img src={logo} className="App-logo" alt="logo" />

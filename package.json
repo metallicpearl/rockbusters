@@ -32,7 +32,7 @@
 
     "axios": "^1.6.2",
 
-    "browserfs": "^1.4.3",
+    "browserfs": "^1.4.3", 
 
     "dotenv": "^16.3.1",
 
