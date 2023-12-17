@@ -7,9 +7,9 @@ on:
     branches: ["main"]
 
 env: 
-  process.env.dbUrl: ${{ secrets.DBURL }}
-  process.env.dbMasterKey: ${{ secrets.DBMASTERKEY }}
-  process.env.dbCorsKey: ${{ secrets.DBCORSKEY }}
+  dbUrl: ${{ secrets.DBURL }}
+  dbMasterKey: ${{ secrets.DBMASTERKEY }}
+  dbCorsKey: ${{ secrets.DBCORSKEY }}
 
 
   # Allows you to run this workflow manually from the Actions tab
