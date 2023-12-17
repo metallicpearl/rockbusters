@@ -1,9 +1,9 @@
 
 import moment from "moment/moment";
 
-const dbUrl = 'https://rbanswers-15f6.restdb.io/rest/top-25-scores';
-const dbMasterKey = '03ea6b0ec6848c82bc24262f90437f9378af0';
-const dbCorsKey = '656b0a25d8bcace6ca9d19e4';
+const dbUrl = process.env.dbUrl;
+const dbMasterKey = process.env.dbMasterKey;
+const dbCorsKey = process.env.dbCorsKey;
 
 
 async function getData()
