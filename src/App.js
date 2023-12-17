@@ -353,10 +353,10 @@ function App() {
   const cardStyle = {
     backgroundColor: 'grey'
   }
-
+ 
   let pageLoaded = (
 
-    <div className="App" position="fixed">
+    <div className="App" position="fixed" onLoad={()=>{playTheme();musicPlayingNewState(false)}}>
       <header className="App-header" >
         <span id="startContent" hidden={startContentHiddenState} style={{ border: "4px solid", width: 1200, color: 'black', paddingBottom: 50 }}>
 
