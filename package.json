@@ -10,8 +10,6 @@
 
   },
 
-  "homepage": "http://metallicpearl.github.io/rockbusters",
-
   "name": "reactapp",
 
   "version": "0.1.0",
@@ -34,7 +32,7 @@
 
     "axios": "^1.6.2",
 
-    "browserfs": "^1.4.3", 
+    "browserfs": "^1.4.3",
 
     "dotenv": "^16.3.1",
 
@@ -92,7 +90,7 @@
 
     "predeploy": "npm run build",
 
-    "deploy": "gh-pages  -d main -d build"
+    "deploy": "gh-pages -d build"
 
   },
 
@@ -138,9 +136,9 @@
 
     "gh-pages": "^6.1.0"
 
-  }
+  },
 
-
+  "homepage": "http://metallicpearl.github.io/rockbusters/"
 
 }
 
