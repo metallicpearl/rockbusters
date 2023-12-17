@@ -3,7 +3,7 @@ import moment from "moment/moment";
 
 const dbUrl = process.env.dbUrl;
 const dbMasterKey = process.env.dbMasterKey;
-const dbCorsKey = process.env.dbCorsKey;
+const dbCorsKey = process.env;
 
 
 async function getData()
