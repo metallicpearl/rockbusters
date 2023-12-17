@@ -37,6 +37,10 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
+        env: 
+          dbUrl: ${{ secrets.DB_URL }}
+          dbMasterKey: ${{ secrets.DB_MASTERKEY}};
+          dbCorsKey: ${{ secrets.DB_CORSKEY }};
 
   # Deployment job
   deploy:
@@ -49,7 +53,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
-        env: 
-          dbUrl: ${{ secrets.DB_URL }}
-          dbMasterKey: ${{ secrets.DB_MASTERKEY}};
-          dbCorsKey: ${{ secrets.DB_CORSKEY }};
+
