@@ -42,7 +42,12 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
-      - name: Set environment variables
+      - name: expose URL
+        run: echo secrets.DB_URL
+      - name: expose Master key
+        run: echo secrets.DB_MASTERKEY
+      - name: expose Cors key 
+        run: echo ssecrets.DB_CORSKEY 
 
 
 
