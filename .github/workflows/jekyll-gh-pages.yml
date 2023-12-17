@@ -29,9 +29,9 @@ jobs:
     runs-on: ubuntu-latest
     environment: dbSecrets
     env: 
-      dbUrl: '${{ dbSecrets.DBURL }}'
-      dbMasterKey: '${{ dbSecrets.DBMASTERKEY }}'
-      dbCorsKey: '${{ dbSecrets.DBCORSKEY }}'
+      dbUrl: ${{ dbSecrets.DBURL }}
+      dbMasterKey: ${{ dbSecrets.DBMASTERKEY }}
+      dbCorsKey: ${{ dbSecrets.DBCORSKEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
