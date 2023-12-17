@@ -42,9 +42,9 @@ jobs:
         uses: actions/upload-pages-artifact@v2
       - name : variables
   env: 
-    dbUrl: '${{ dbSecrets.DBURL }}'
-    dbMasterKey: '${{ dbSecrets.DBMASTERKEY }}'
-    dbCorsKey: '${{ dbSecrets.DBCORSKEY }}'
+    dbUrl: ${{ dbSecrets.DBURL }}
+    dbMasterKey: ${{ dbSecrets.DBMASTERKEY }}
+    dbCorsKey: ${{ dbSecrets.DBCORSKEY }}
   run: 
     echo $dbUrl
     echo $dbMasterKey 

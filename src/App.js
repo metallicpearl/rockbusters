@@ -364,7 +364,7 @@ function App() {
             WELCOME TO <br />
           </label>
           <label style={headerTextStyle2}>
-            ROCKBUSTERS1
+            ROCKBUSTERS2
           </label>
 
           <p style={{ padding: 40 }}>
