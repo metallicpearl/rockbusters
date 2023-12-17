@@ -101,6 +101,7 @@ function App() {
   let [saveButtonEnabledState, setSaveButtonEnabledState] = useState(true);
   let [saveButtonProcessingState, setSaveButtonProcessingState] = useState(false);
   let [saveButtonEnabled, saveButtonSetEnabled] = useState(false);
+  let [savingTextVisible, savingTextSetVisible] = useState(true);
 
 
   // function secondsToTime(e){
@@ -440,7 +441,7 @@ function App() {
             <label hidden={saveButtonEnabled} style={welcomeTextStyle}>
               Your score is one of the top 25 scores recorded in this game. If you wish to record it for posterity, please put your name in the box below and click 'SAVE'.
             </label>
-            <label hidden={function(){ var x; if (saveButtonEnabled == false){x=true}else{x=false}return x;}} style={welcomeTextStyle}>
+            <label hidden={savingTextVisible} style={welcomeTextStyle}>
               Saving your score...
             </label>
           </p>
@@ -448,7 +449,7 @@ function App() {
             <input id='nameText' onChange={(event) => { nameInput = event.target.value }} disabled={saveButtonEnabled}
               style={{ alignContent: 'center', width: 520, backgroundColor: 'beige', borderRadius: 5, border: "2px solid", fontWeight: 'bolder', fontSmooth: 'always', fontFamily: 'Calibri', fontSize: 28 }}>
             </input>
-            <label hidden={saveButtonEnabled} style={{ marginLeft: 40, whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'lightgreen' : 'green', width: 200, border: '4px dotted', borderColor: buttonIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center' }} onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={async () => { if (saveButtonProcessingState == false) { saveButtonSetEnabled(true); setSaveButtonNameState(" SAVING... "); setSaveButtonProcessingState(true); await Process([finalScore, finalTime, nameInput]);  } setEndContentHiddenState(true); thankyouContentSetHiddenState(false); }}>
+            <label hidden={saveButtonEnabled} style={{ marginLeft: 40, whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'lightgreen' : 'green', width: 200, border: '4px dotted', borderColor: buttonIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center' }} onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={async () => { if (saveButtonProcessingState == false) {saveButtonSetEnabled(true); setSaveButtonNameState(" SAVING... "); savingTextSetVisible(false); setSaveButtonProcessingState(true); await Process([finalScore, finalTime, nameInput]);  } setEndContentHiddenState(true); thankyouContentSetHiddenState(false); }}>
               {saveButtonNameState}
             </label>
           </p>
