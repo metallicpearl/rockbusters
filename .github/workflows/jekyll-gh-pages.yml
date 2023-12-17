@@ -38,10 +38,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
       - name: Set environment variables
-        env: 
-          dbUrl: ${{ secrets.DB_URL }}
-          dbMasterKey: ${{ secrets.DB_MASTERKEY }};
-          dbCorsKey: ${{ secrets.DB_CORSKEY }};
+
 
 
   # Deployment job
@@ -49,6 +46,10 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+      env: 
+      dbUrl: ${{ secrets.DB_URL }}
+      dbMasterKey: ${{ secrets.DB_MASTERKEY }};
+      dbCorsKey: ${{ secrets.DB_CORSKEY }};
     runs-on: ubuntu-latest
     needs: build
     steps:
