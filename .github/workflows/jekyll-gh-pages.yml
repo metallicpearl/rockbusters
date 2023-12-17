@@ -28,10 +28,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment: dbSecrets
-    env: 
-      dbUrl: ${{ dbSecrets.DBURL }}
-      dbMasterKey: ${{ dbSecrets.DBMASTERKEY }}
-      dbCorsKey: ${{ dbSecrets.DBCORSKEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,12 +40,17 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
-      - name: expose URL
-        run: echo dbUrl
-      - name: expose Master key
-        run: echo dbMasterKey
-      - name: expose Cors key 
-        run: echo dbCorsKey 
+      - name : variables
+        env: 
+          dbUrl: ${{ dbSecrets.DBURL }}
+          dbMasterKey: ${{ dbSecrets.DBMASTERKEY }}
+          dbCorsKey: ${{ dbSecrets.DBCORSKEY }}
+        run: 
+          echo $dbUrl
+          echo $dbMasterKey 
+          echo $dbCorsKey
+            
+
 
 
 
