@@ -25,4 +25,4 @@ yarn-error.log*
 /srcOld
 
 .env
-.env.copy
+.env copy
