@@ -42,7 +42,7 @@ jobs:
 
             
 
-  build:
+  envs:
     runs-on: ubuntu-latest
     steps:
       - name : variables
