@@ -8,7 +8,7 @@ on:
 
 env: 
   dbUrl: ${{ secrets.DBURL }}
-  dbMasterKey: ${{ secrets.DBMASTERKEY}}
+  dbMasterKey: ${{ secrets.DBMASTERKEY }}
   dbCorsKey: ${{ secrets.DBCORSKEY }}
 
 
