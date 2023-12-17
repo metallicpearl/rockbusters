@@ -1,0 +1,24 @@
+{
+    "winners": [
+        {
+            "name": "Richard 'Dickie' Anderson",
+            "score": 25,
+            "timeCompleted": "120"
+        },
+        {
+            "name": "Paul 'The Party Animal' Parker",
+            "score": 25,
+            "timeCompleted": "130"
+        },
+        {
+            "name": "Paul McGibbon",
+            "score": 24,
+            "timeCompleted": "110"
+        },
+        {
+            "name": "Smerch",
+            "score": 24,
+            "timeCompleted": "100"
+        }
+    ]
+}
