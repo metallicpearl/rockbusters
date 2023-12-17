@@ -28,9 +28,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env: 
-      dbUrl: ${{ secrets.DB_URL }}
-      dbMasterKey: ${{ secrets.DB_MASTERKEY }};
-      dbCorsKey: ${{ secrets.DB_CORSKEY }};
+      dbUrl: '${{ secrets.DB_URL }}'
+      dbMasterKey: '${{ secrets.DB_MASTERKEY }}'
+      dbCorsKey: '${{ secrets.DB_CORSKEY }}'
     steps:
       - name: Checkout
         uses: actions/checkout@v4
