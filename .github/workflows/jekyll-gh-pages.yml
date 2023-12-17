@@ -58,6 +58,10 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+      env: 
+        dbUrl: ${{ dbSecrets.DBURL }}
+        dbMasterKey: ${{ dbSecrets.DBMASTERKEY }}
+        dbCorsKey: ${{ dbSecrets.DBCORSKEY }}
     runs-on: ubuntu-latest
     needs: build
     steps:
