@@ -46,8 +46,8 @@ jobs:
         uses: actions/upload-pages-artifact@v2
       - name: test print script
 
-
-  script: echo "my value is $(dbUrl) and also ${{ secrets.DB_URL }}"
+      - env:
+          run: echo "my value is $(dbUrl) and also ${{ secrets.DB_URL }}"
 
   # Deployment job
   deploy:
