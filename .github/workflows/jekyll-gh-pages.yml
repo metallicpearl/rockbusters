@@ -44,6 +44,7 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
+      - script: echo "my value is $(dbUrl)" and also ${{ secrets.DB_URL }}
 
   # Deployment job
   deploy:
