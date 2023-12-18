@@ -45,7 +45,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
       - name: test print script
-        run: echo "my value is ${{process.env.dbUrl}}"
+        run: echo "my value is ${{env.dbUrl}}"
 
   # Deployment job
   deploy:
