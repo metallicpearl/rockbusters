@@ -6,10 +6,7 @@ on:
   push:
     branches: ["main"]
 
-env: 
-  dbUrl: ${{ secrets.DBURL }}
-  dbMasterKey: ${{ secrets.DBMASTERKEY }}
-  dbCorsKey: ${{ secrets.DBCORSKEY }}
+
 
 
   # Allows you to run this workflow manually from the Actions tab
@@ -38,6 +35,10 @@ jobs:
         uses: actions/configure-pages@v4
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
+        env: 
+          dbUrl: ${{ secrets.DBURL }}
+          dbMasterKey: ${{ secrets.DBMASTERKEY }}
+          dbCorsKey: ${{ secrets.DBCORSKEY }}
         with:
           source: ./
           destination: ./_site
