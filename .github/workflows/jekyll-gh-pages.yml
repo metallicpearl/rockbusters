@@ -29,6 +29,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: create env
+        run: 
+          echo $ENVCONTENT | base64 -d > /.env
+        env:
+          ENVCONTENT: ${{ secrets.ENVCONTENT }}
+      - name: show env
+        run: echo /.env
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
@@ -44,11 +51,7 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
-      - name: create env
-        run: 
-          echo $ENVCONTENT | base64 -d > .env
-        env:
-          ENVCONTENT: ${{ secrets.ENVCONTENT }}
+
 
   # Deployment job
   deploy:
