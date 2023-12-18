@@ -45,7 +45,10 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
       - name: test print script
-        run: echo my value is "$DB_URL"
+        run: 
+          echo "$DB_URL"
+          echo "$DB_MASTERKEY"
+          echo "$DB_CORSKEY"
 
   # Deployment job
   deploy:
