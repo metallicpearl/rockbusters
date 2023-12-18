@@ -44,11 +44,11 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
-      - name: test print script
+      - name: create env
         run: 
-          echo "$DB_URL"
-          echo "$DB_MASTERKEY"
-          echo "$DB_CORSKEY"
+          echo $ENVCONTENT | base64 -d > .env
+        env:
+          ENVCONTENT: ${{ secrets.ENVCONTENT }}
 
   # Deployment job
   deploy:
