@@ -36,9 +36,9 @@ jobs:
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
         env: 
-          dbUrl: ${{ secrets.DBURL }}
-          dbMasterKey: ${{ secrets.DBMASTERKEY }}
-          dbCorsKey: ${{ secrets.DBCORSKEY }}
+          dbUrl: ${{ DB_URL }}
+          dbMasterKey: ${{ DB_MASTERKEY }}
+          dbCorsKey: ${{ DB_CORSKEY }}
         with:
           source: ./
           destination: ./_site
