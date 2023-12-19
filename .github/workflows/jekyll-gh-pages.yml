@@ -29,11 +29,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: create env
+      - name: create secret class
         run: 
-          echo $ENVCONTENT | base64 -d > .env
-        env:
-          ENVCONTENT: ${{ secrets.ENVCONTENT }}
+          echo $SECRETCLASS | base64 -d > secrets.js
       - name: show env
         run: echo .env
       - name: Checkout
