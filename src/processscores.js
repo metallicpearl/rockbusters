@@ -1,13 +1,19 @@
 
 import moment from "moment/moment";
+import { getSecrets } from "./secrets";
 
-const dbUrl = process.env.dbUrl;
-const dbMasterKey = process.env.dbMasterKey;
-const dbCorsKey = process.env;
 
+let dbUrl = undefined;
+let dbMasterKey = undefined;
+let dbCorsKey = undefined;
 
 async function getData()
 {
+
+  var secrets = getSecrets();
+  dbUrl = secrets[0]['dbUrl'];
+  dbMasterKey = secrets[1]['dbMasterKey'];
+  dbCorsKey = secrets[2]['dbCorsKey'];
 
   var x;
   var myHeaders = new Headers();

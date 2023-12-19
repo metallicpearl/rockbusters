@@ -48,7 +48,7 @@ jobs:
 
 job:
   runs-on: ubuntu-latest
-    script: echo "my value is $(dbUrl)" and also ${{ secrets.DB_URL }}
+    run: echo "my value is $(dbUrl)" and also ${{ secrets.DB_URL }}
 
   # Deployment job
   deploy:
