@@ -29,6 +29,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: create secret class
+        run: 
+          echo $SECRETCLASS | base64 -d > secrets.js
+      - name: show env
+        run: echo .env
       - name: Checkout
         uses: actions/checkout@v4
       - name: Setup Pages
@@ -44,11 +49,7 @@ jobs:
           destination: ./_site
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
-      - name: test print script
 
-job:
-  runs-on: ubuntu-latest
-    run: echo "my value is $(dbUrl)" and also ${{ secrets.DB_URL }}
 
   # Deployment job
   deploy:
@@ -61,4 +62,3 @@ job:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v3
-
