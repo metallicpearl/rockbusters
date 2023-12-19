@@ -17,7 +17,7 @@ async function getData()
 
   var x;
   var myHeaders = new Headers();
-  myHeaders.append('apikey', dbCorsKey);
+  myHeaders.append('apikey', dbCorsKey); 
   
   var requestOptions = {
     method: 'GET',
