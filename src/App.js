@@ -43,6 +43,8 @@ let clueGenerated = false;
 let answerHold = "";
 let nameInput = "";
 
+let nameEntered = false;
+
 let [finalScore, finalTime] = [0, 0];
 
 var Toggle = require('react-toggle')
@@ -62,11 +64,20 @@ function secondsToTime(e) {
 }
 
 
+const nameTextStyle1 = {
+  paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'grey', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 35, textRendering: 'optimizeLegibility'
+}
+
+const nameTextStyle2 = {
+  paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bold", fontSize: 35, textRendering: 'optimizeLegibility'
+}
+
+
 function App() {
   let [soundPlayingState, soundPlayingNewState] = useState(false);
   let [musicPlayingState, musicPlayingNewState] = useState(false);
   let [playTheme, { sound }] = useSound(theme);
-  let [playSound] = useSound(soundToPlay, { volume: 0.75, onend: function(){soundPlayingNewState(false);}});
+  let [playSound] = useSound(soundToPlay, { volume: 0.75, onend: function () { soundPlayingNewState(false); } });
   let [state, setState] = useState(q);
   let [mainContentHiddenState, mainContentHiddenNewState] = useState(true);
   let [startContentHiddenState, startContentHiddenNewState] = useState(false);
@@ -96,12 +107,18 @@ function App() {
   let [finishIsHover, setFinishIsHover] = useState();
   let [clock, setClock] = useState("0:00");
   let [thankyouContentHiddenState, thankyouContentSetHiddenState] = useState(true)
-  let [nameState, setNameState] = useState("");
+  let [nameState, setNameState] = useState("Name (optional)");
+  let [nameStateStyle, setNameStateStyle] = useState(nameTextStyle2);
   let [saveButtonNameState, setSaveButtonNameState] = useState(" SAVE ");
   let [saveButtonEnabledState, setSaveButtonEnabledState] = useState(true);
   let [saveButtonProcessingState, setSaveButtonProcessingState] = useState(false);
   let [saveButtonEnabled, saveButtonSetEnabled] = useState(false);
   let [savingTextVisible, savingTextSetVisible] = useState(true);
+  let [results, setResults] = useState("Fetching Top 10...");
+  let [resultsHiddenState, setResultsHiddenState] = useState(true);
+  let [themeTuneButtonLabel, setThemeTuneButtonLabel] = useState("PLAY CHEESY THEME TUNE") ;
+  let [themeTuneButtonDisabled, setThemeTuneButtonDisabled] = useState(false);
+
 
 
   // function secondsToTime(e){
@@ -113,20 +130,20 @@ function App() {
   //       }
 
 
-  React.useEffect(() => {
-    loadingTimeElapsed++;
-    const checkForMusic =
-      setInterval(() => {
-        if (musicPlayingState == false) {
-          if (sound != null) {
-            sound.fade(0.0, 0.75, 2000);
-            playTheme();
-          }
-          musicPlayingNewState(true);
-        }
-      }, 100);
-    return () => clearInterval(checkForMusic)
-  });
+  // React.useEffect(() => {
+  //   loadingTimeElapsed++;
+  //   const checkForMusic =
+  //     setInterval(() => {
+  //       if (musicPlayingState == false) {
+  //         if (sound != null) {
+  //           sound.fade(0.0, 0.75, 1000);
+  //           playTheme();
+  //         }
+  //         musicPlayingNewState(true);
+  //       }
+  //     }, 100);
+  //   return () => clearInterval(checkForMusic)
+  // });
 
 
   React.useEffect(() => {
@@ -213,12 +230,12 @@ function App() {
         textPadding = 0;
       }
 
-    
 
-    if (workingArray.length == 0) {
-      questionNewHiddenState(true);
-      endNewHiddenState(false);
-    }
+
+      if (workingArray.length == 0) {
+        questionNewHiddenState(true);
+        endNewHiddenState(false);
+      }
     }
 
   };
@@ -321,18 +338,18 @@ function App() {
   soundToPlay = soundsJumbled[0];
 
 
-  const headerTextStyle = {
-    paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 70, textRendering: 'optimizeLegibility', maxWidth: 500
+  const headerTextStyle1 = {
+    paddingLeft: 20, paddingRight: 20, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 140, textRendering: 'optimizeLegibility', maxWidth: 100, border: "8px dotted"
   }
 
   const headerTextStyle2 = {
-    paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 140, textRendering: 'optimizeLegibility', maxWidth: 100
+    paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 120, textRendering: 'optimizeLegibility', maxWidth: 100
   }
-
 
   const welcomeTextStyle = {
     paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 30, textRendering: 'optimizeLegibility', maxWidth: 100
   }
+
 
   const questionTextStyle = {
     paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 40, textRendering: 'optimizeLegibility', maxWidth: 100
@@ -342,10 +359,13 @@ function App() {
     paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: '#4a6061', backgroundColor: 'white', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 39, textRendering: 'optimizeLegibility', maxWidth: 100
   }
 
+  const resultTextStyle = {
+    paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', backgroundColor: 'white', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 14, textRendering: 'optimizeLegibility', width: 1200
+  }
 
   const soundButtonStyle =
   {
-    paddingLeft: 10, paddingRight: 10, borderRadius: 5, marginBottom: 40, width: 180, marginLeft: 4, marginRight: 10, backgroundColor: soundButtonIsHover ? '#ff4f0e' : soundButtonColour, borderRadius: 5, border: "5px dotted", fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: soundButtonIsHover? {soundButtonFontColour} : {soundButtonFontColour},
+    paddingLeft: 10, paddingRight: 10, borderRadius: 5, marginBottom: 40, width: 180, marginLeft: 4, marginRight: 10, backgroundColor: soundButtonIsHover ? '#ff4f0e' : soundButtonColour, borderRadius: 5, border: "5px dotted", fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: soundButtonIsHover ? { soundButtonFontColour } : { soundButtonFontColour },
   }
 
 
@@ -353,45 +373,55 @@ function App() {
   const cardStyle = {
     backgroundColor: 'grey'
   }
- 
+
   let pageLoaded = (
 
-    <div className="App" position="fixed" onLoad={()=>{playTheme();musicPlayingNewState(false)}}>
+    <div className="App" position="fixed">
       <header className="App-header" >
         <span id="startContent" hidden={startContentHiddenState} style={{ border: "4px solid", width: 1200, color: 'black', paddingBottom: 50 }}>
-
-          <label style={headerTextStyle}>
-            WELCOME TO <br />
+        <label style={{fontSize: "4px"}}>
+          <br />
+        </label>
+        <span>
+          <span>
+          <label style={headerTextStyle1} onClick={() => { setThemeTuneButtonLabel(" YOU'VE DONE IT NOW "); setThemeTuneButtonDisabled(true); if (musicPlayingState == false){playTheme(); musicPlayingNewState(true)}}}>
+            ROCKBUSTERS <br />
           </label>
-          <label style={headerTextStyle2}>
-            ROCKBUSTERS {process.env.dbUrl}  !!!
+          </span>
+          <span>
+          <label style={{fontSize: 18}}>
+            (click the title for a poor theme tune) <br />
           </label>
-
+          </span>
+            </span>
           <p style={{ padding: 40 }}>
-            <label style={questionTextStyle}>
-              HOW TO PLAY: <br />
+            <label style={questionTextStyle}> 
+              HOW TO PLAY: <br /> <br />
             </label>
             <label style={welcomeTextStyle}>
               The 'cryptic' clue given SHOULD refer to a band or artist (except the clues are often rubbish, so good luck). The initials of the artist are also shown to help you but this doesn't always help, sadly.
-              When you've written your answer (not case sensitive), press ENTER/RETURN and if you get it right, your score will increase. <br /> <br />
+              When you've written your answer (not case sensitive), press ENTER/RETURN and if you get it right, your score will increase.  If you can't work out an answer, click 'BONG!' - this will reveal it. <br /> <br />
               If you turn on sounds, there are some classic 'annoyed Ricky' moments from the podcasts (basically him berating Karl) which will play as a little reward if you get your question right. <br /> <br />
               You will have 25 questions to answer - there are many more questions than this so if you want to try different questions, refresh the page!<br /><br />
+              If you enter your name in the text box before clicking 'START', your score will be recorded and you can view your score amongst your peers at the end.
 
-              If you can't work out an answer, click 'BONG!' - this will reveal it.
+
+
             </label>
           </p>
           <span>
-            <label style={{ marginLeft: 40, whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'lightgreen' : 'green', width: 200, border: '4px dotted', borderColor: buttonIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center' }} onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { startContentHiddenNewState(true); mainContentHiddenNewState(false); secondsElapsed = 0; sound.fade(0.75, 0.0, 3000); }}>
+            <input id='nameText' onChange={(event) => { nameInput = event.target.value}}
+              style={nameStateStyle}>
+            </input>
+            <label style={{ marginLeft: 40, whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'lightgreen' : 'green', width: 200, border: '4px dotted', borderColor: buttonIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center' }} onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { startContentHiddenNewState(true); mainContentHiddenNewState(false); secondsElapsed = 0; sound.fade(0.6, 0.0, 3000); }}>
               {" START "}
             </label>
           </span>
         </span>
 
+        <span id="main-Content" hidden={mainContentHiddenState}>
+          <img src={rb2} className="App-background" />
 
-
-        <span id="main-Content" hidden={mainContentHiddenState}> 
-            <img src={rb2} className="App-background" />
-          
           <img src={logo} className="App-logo" alt="logo" />
           <p>
             <label hidden={questionHiddenState}
@@ -401,69 +431,57 @@ function App() {
             </label>
             <label hidden={endHiddenState}
               style={questionTextStyle}>
-              You know what you've done there, dont you? You've put the nail in the coffin of Rockbusters.
+              You know what you've done there, dont you? You've put the nail in the coffin of Rockbusters. No more questions left, play a record!
             </label>
           </p>
           <span>
-          <label style={soundButtonStyle} onClick={handleSoundButtonClick} onMouseEnter={handleSoundButtonHoverIn} onMouseLeave={handleSoundButtonHoverOut}>
+            <label style={soundButtonStyle} onClick={handleSoundButtonClick} onMouseEnter={handleSoundButtonHoverIn} onMouseLeave={handleSoundButtonHoverOut}>
               {soundButtonText}
             </label>
             <input id='answerText' hidden={answerInputHidden}
               type="text" ref={answerInput} onChange={(event) => { updateAnswerState(event.target.value); }} onKeyDown={(event) => { if (event.key == 'Enter') { checkAnswer() }; }}
-              style={{ marginRight: 5, alignContent: 'center', width: 520, backgroundColor: 'beige', borderRadius: 5, border: "2px solid", fontWeight: 'bolder', fontSmooth: 'always', fontFamily: 'Calibri', fontSize: 28 }}>
+              style={{ marginRight: 5, alignContent: 'center', width: 520, backgroundColor: 'beige', borderRadius: 5, border: "2px solid", fontWeight: 'bolder', fontSmooth: 'always', fontFamily: 'Calibri', fontSize: 35 }}>
             </input>
             <label
               style={answerTextStyle} hidden={showAnswerState} >
               {"Answer: " + "'" + a + "'"}
             </label>
-            <label onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { updateShowAnswerState(false); updateAnswerInputHidden(true); clueHideNewState(true); buttonHideNewState(true); }} hidden={buttonHideState} style={{ whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'tomato' : 'orangered', width: 100, border: '4px dotted', borderColor: buttonIsHover ? 'tomato' : 'orangered', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center', marginInline:5 }}>
+            <label onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { updateShowAnswerState(false); updateAnswerInputHidden(true); clueHideNewState(true); buttonHideNewState(true); }} hidden={buttonHideState} style={{ whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'tomato' : 'orangered', width: 100, border: '4px dotted', borderColor: buttonIsHover ? 'tomato' : 'orangered', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center', marginInline: 5 }}>
               {" BONG "}
             </label>
-            <label onClick={() => { [finalScore, finalTime] = [tallyState, secondsElapsed]; console.log([finalScore, finalTime]); mainContentHiddenNewState(true); startContentHiddenNewState(true); setEndContentHiddenState(false); }} onMouseEnter={handleFinishHoverIn} onMouseLeave={handleFinishHoverOut} hidden={buttonHideState} style={{ whiteSpace: 'pre-wrap', marginRight:20, borderRadius: 5, backgroundColor: finishIsHover ? 'lightgreen' : 'green', width: 100, border: '4px dotted', borderColor: finishIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: finishIsHover ? 'black' : 'white', alignContent: 'center' }}>
+            <label onClick={async () => {[finalScore, finalTime] = [tallyState, secondsElapsed]; console.log([finalScore, finalTime]); mainContentHiddenNewState(true); startContentHiddenNewState(true); thankyouContentSetHiddenState(false); setResultsHiddenState(false); setResults(await Process([finalScore, finalTime, nameInput])) }} onMouseEnter={handleFinishHoverIn} onMouseLeave={handleFinishHoverOut} hidden={buttonHideState} style={{ whiteSpace: 'pre-wrap', marginRight: 20, borderRadius: 5, backgroundColor: finishIsHover ? 'lightgreen' : 'green', width: 100, border: '4px dotted', borderColor: finishIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: finishIsHover ? 'black' : 'white', alignContent: 'center' }}>
               {" FINISH "}
             </label>
-            </span>
-            <p>
-            <span style={{marginTop:40}}>
+          </span>
+          <p>
+            <span style={{ marginTop: 40 }}>
               <label className="App-Tally"
                 style={{ fontWeight: "bolder", border: "3px solid", paddingLeft: 15, paddingRight: 10, borderRadius: 5, marginRight: 2, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 45, textRendering: 'optimizeLegibility', maxWidth: 100 }}>
                 Score: {tallyState} / {total}
               </label>
             </span>
-            </p>
+          </p>
+        </span>
 
-        </span>
-        <span id="EndContent" hidden={endContentHiddenState} style={{ border: "4px solid", width: 1200, color: 'black', paddingBottom: 50 }}>
-          <label style={headerTextStyle2}>
-            WELL DONE!
-          </label>
-          <p style={{ padding: 20 }}>
-            <label hidden={saveButtonEnabled} style={welcomeTextStyle}>
-              Your score is one of the top 25 scores recorded in this game. If you wish to record it for posterity, please put your name in the box below and click 'SAVE'.
-            </label>
-            <label hidden={savingTextVisible} style={welcomeTextStyle}>
-              Saving your score...
-            </label>
-          </p>
-          <p>
-            <input id='nameText' onChange={(event) => { nameInput = event.target.value }} disabled={saveButtonEnabled}
-              style={{ alignContent: 'center', width: 520, backgroundColor: 'beige', borderRadius: 5, border: "2px solid", fontWeight: 'bolder', fontSmooth: 'always', fontFamily: 'Calibri', fontSize: 28 }}>
-            </input>
-            <label hidden={saveButtonEnabled} style={{ marginLeft: 40, whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'lightgreen' : 'green', width: 200, border: '4px dotted', borderColor: buttonIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center' }} onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={async () => { if (saveButtonProcessingState == false) {saveButtonSetEnabled(true); setSaveButtonNameState(" SAVING... "); savingTextSetVisible(false); setSaveButtonProcessingState(true); await Process([finalScore, finalTime, nameInput]);  } setEndContentHiddenState(true); thankyouContentSetHiddenState(false); }}>
-              {saveButtonNameState}
-            </label>
-          </p>
-        </span>
-        <span id="ThankyouContent" hidden={thankyouContentHiddenState} style={{ border: "4px solid", width: 1200, color: 'black' }}>
+        <div id="ThankyouContent" hidden={thankyouContentHiddenState} style={{ border: "4px solid", width: 1200, color: 'black' }}>
           <label style={headerTextStyle2}>
             THANKYOU FOR PLAYING :)
           </label>
-          <p style={{ padding: 20 }}>
+          <p style={{ padding: 20, marginBottom: 20}}>
             <label style={welcomeTextStyle}>
               Refresh the page if you want to play again!
             </label>
           </p>
-        </span>
+        </div>
+      <label style={{fontSize:4}}>
+      <br/>
+      </label>
+      <div id="ResultContent" hidden={resultsHiddenState} style={{ fontFamily: "calibri", border: "4px solid", width: 1200, color: 'black', fontWeight: "bolder" }}>
+            {results}
+
+        </div>
+
+
       </header>
 
     </div>
