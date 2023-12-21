@@ -15,6 +15,12 @@
   margin: auto;
 
  
+  @media (min-width: 1200px) {
+  .disable-app {
+    display: none;
+  }
+  }
+
 
   padding-top: 0px;
   -webkit-user-drag: none;
@@ -53,7 +59,7 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: rgb(30, 22, 22);
 }
 
 .App-link {
