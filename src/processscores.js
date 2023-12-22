@@ -86,7 +86,7 @@ export async function Process([tally, elapsedseconds, name]) {
       {
         name = "[(No name provided)]"
       }
-      tempHoldArray.push(await JSON.parse(`{"name" : "${name}", "score" : "${tally}", "time" : "${elapsedseconds}", "date": "${currentdate}", "new":"true"}`));
+      
       var existingData = JSON.parse(await getData());
       var currentRecordCount = await existingData.length;
       for (var x = 0; x < currentRecordCount; x++) {
@@ -103,7 +103,7 @@ export async function Process([tally, elapsedseconds, name]) {
         var valueToAdd = JSON.parse(`{"name" : "${newname}", "score" : "${newscore}", "time" : "${newtime}", "date": "${currentdate}", "new":"false"}`);
         tempHoldArray.push(await valueToAdd);
       }
-
+      tempHoldArray.push(await JSON.parse(`{"name" : "[${name}]", "score" : "${tally}", "time" : "${elapsedseconds}", "date": "${currentdate}", "new":"true"}`));
       for (var x = 0; x < currentRecordCount; x++) {
         var idToDelete = await existingData[x]['_id']
         idsToDelete.push(JSON.stringify('_id') + ":" + JSON.stringify(idToDelete));
