@@ -13,7 +13,6 @@ At the moment I'm in a river full of logs. (JT) = Justin Timberlake
 That lad's got bad asthma. (W) = Weezer
 I saw Mousetrap the other night, but the heating was knackered and it ruined the evening. (C) = Coldplay
 I don't like them birds, they shouldn't be allowed in this area. (B) = The Bangles
-He doesn't like women, yet he's got a couple of kids. That's a bit weird innit? (PD) = Puff Daddy
 That bloke who does sport on telly, he's got a little kid. (DC) = Destiny's Child 
 That army has got some well nice trenches. (DW) = Dandy Warhols 
 The top of them curtains are wrecked; all the material's worn. (HV) = Holly Valance
@@ -141,7 +140,6 @@ I went to the restaurant on Monday, Tuesday, Wednesday, Thursday and Friday, Sat
 Go into that woman's store and rip her off. (C) = Cornershop (con her shop)
 You've had a go at laying down a track, but it ain't perfect. (E) = Eurythmics (your rough mix)
 Those songs you sing at Christmas, that bloke who sings 'em is brilliant at it. (CK) = Carole King
-I told the homosexual man that the grape tree was mine. (MG) = Marvin Gaye (my vine, gay)
 I ask you, Ricky, if you believe in Father Christmas. What do you say? (S) = Santana (Santa? nah)
 That's a laptop... (A) = Adele (A dell)
 The Spanish people are celebrating about the present they got for Jesus. (OM) = Olly Murs (Ole! Myrrhs!)
