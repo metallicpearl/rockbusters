@@ -357,7 +357,7 @@ function App() {
 
     <div className="App" position="fixed">
       <header className="App-header" >
-        <span id="startContent" hidden={startContentHiddenState} style={{ border: "4px solid", width: 1200, color: 'black', paddingBottom: 50 }}>
+        <span id="startContent" hidden={startContentHiddenState} style={{ border: "4px solid", width: 1400, color: 'black', paddingBottom: 50 }}>
           <label style={{ fontSize: "4px" }}>
             <br />
           </label>
@@ -468,13 +468,13 @@ function App() {
 
   )
 
-  const isAppDisabled = window.matchMedia('(min-width: 1200px)').matches;
+  const isAppDisabled = window.matchMedia('(min-width: 1400px)').matches;
   if (!isAppDisabled) {
     return [
       <header className="App-header">
         <div>
           <label>
-            Sorry - this page isn't designed for use below 1200px.
+            Sorry - this page isn't designed for use below 1400px.
           </label>
         </div>
       </header>
