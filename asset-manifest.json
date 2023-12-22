@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/rockbusters/static/css/main.8999ddd6.css",
-    "main.js": "/rockbusters/static/js/main.40557ba3.js",
+    "main.js": "/rockbusters/static/js/main.1c2f0a7d.js",
     "static/js/263.a13dba56.chunk.js": "/rockbusters/static/js/263.a13dba56.chunk.js",
     "static/js/755.71db5afc.chunk.js": "/rockbusters/static/js/755.71db5afc.chunk.js",
     "static/media/rbtheme.mp3": "/rockbusters/static/media/rbtheme.835f1129745f923c4c14.mp3",
@@ -18,12 +18,12 @@
     "static/media/karl.svg": "/rockbusters/static/media/karl.5f8339df75992fb0d866a0b9196861a4.svg",
     "index.html": "/rockbusters/index.html",
     "main.8999ddd6.css.map": "/rockbusters/static/css/main.8999ddd6.css.map",
-    "main.40557ba3.js.map": "/rockbusters/static/js/main.40557ba3.js.map",
+    "main.1c2f0a7d.js.map": "/rockbusters/static/js/main.1c2f0a7d.js.map",
     "263.a13dba56.chunk.js.map": "/rockbusters/static/js/263.a13dba56.chunk.js.map",
     "755.71db5afc.chunk.js.map": "/rockbusters/static/js/755.71db5afc.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.8999ddd6.css",
-    "static/js/main.40557ba3.js"
+    "static/js/main.1c2f0a7d.js"
   ]
 }
