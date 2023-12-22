@@ -1,9 +1,9 @@
 {
   "files": {
-    "main.css": "/rockbusters/static/css/main.8999ddd6.css",
-    "main.js": "/rockbusters/static/js/main.0bf15f00.js",
-    "static/js/263.a13dba56.chunk.js": "/rockbusters/static/js/263.a13dba56.chunk.js",
-    "static/js/755.71db5afc.chunk.js": "/rockbusters/static/js/755.71db5afc.chunk.js",
+    "main.css": "/rockbusters/static/css/main.ada78557.css",
+    "main.js": "/rockbusters/static/js/main.46d3a4d5.js",
+    "static/js/263.0b2059c7.chunk.js": "/rockbusters/static/js/263.0b2059c7.chunk.js",
+    "static/js/755.6bd946d7.chunk.js": "/rockbusters/static/js/755.6bd946d7.chunk.js",
     "static/media/rbtheme.mp3": "/rockbusters/static/media/rbtheme.835f1129745f923c4c14.mp3",
     "static/media/rsk-007.mp3": "/rockbusters/static/media/rsk-007.4e6cb1b76073240aadee.mp3",
     "static/media/rsk-005.mp3": "/rockbusters/static/media/rsk-005.b5173a02d4869f28879b.mp3",
@@ -17,13 +17,13 @@
     "static/media/rsk-003.mp3": "/rockbusters/static/media/rsk-003.6399dff58f24b018cdfc.mp3",
     "static/media/karl.svg": "/rockbusters/static/media/karl.5f8339df75992fb0d866a0b9196861a4.svg",
     "index.html": "/rockbusters/index.html",
-    "main.8999ddd6.css.map": "/rockbusters/static/css/main.8999ddd6.css.map",
-    "main.0bf15f00.js.map": "/rockbusters/static/js/main.0bf15f00.js.map",
-    "263.a13dba56.chunk.js.map": "/rockbusters/static/js/263.a13dba56.chunk.js.map",
-    "755.71db5afc.chunk.js.map": "/rockbusters/static/js/755.71db5afc.chunk.js.map"
+    "main.ada78557.css.map": "/rockbusters/static/css/main.ada78557.css.map",
+    "main.46d3a4d5.js.map": "/rockbusters/static/js/main.46d3a4d5.js.map",
+    "263.0b2059c7.chunk.js.map": "/rockbusters/static/js/263.0b2059c7.chunk.js.map",
+    "755.6bd946d7.chunk.js.map": "/rockbusters/static/js/755.6bd946d7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.8999ddd6.css",
-    "static/js/main.0bf15f00.js"
+    "static/css/main.ada78557.css",
+    "static/js/main.46d3a4d5.js"
   ]
 }
