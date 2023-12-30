@@ -727,7 +727,7 @@ function App() {
               type="text" ref={answerInput} onChange={(event) => { updateAnswerState(event.target.value); }} onKeyDown={(event) => { if (event.key == 'Enter') { checkAnswer() }; }}
               style={{ alignContent: 'center', width: "60%", backgroundColor: 'beige', border: "2px solid", fontWeight: 'bolder', fontSmooth: 'always', fontFamily: 'Calibri', fontSize: 22, borderRadius: 5}}>
             </input>
-            <label onClick={async () => { checkAnswer();}} hidden={buttonHideState} style={{ maxWidth:30, margin: 5, whiteSpace: 'pre-wrap', borderRadius:5, backgroundColor: submitButtonIsHover ? 'lightgreen' : 'green', border: '4px dotted', borderColor: submitButtonIsHover ? 'lightgreen' : 'green', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: submitButtonIsHover ? 'black' : 'white', alignContent: 'center'}}>
+            <label onClick={async () => { checkAnswer();}} hidden={buttonHideState} style={{ maxWidth:30, margin: 3, whiteSpace: 'pre-wrap', borderRadius:5, backgroundColor: submitButtonIsHover ? 'lightgreen' : 'green', border: '4px dotted', borderColor: submitButtonIsHover ? 'lightgreen' : 'green', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: submitButtonIsHover ? 'black' : 'white', alignContent: 'center'}}>
               {" SUBMIT "}
             </label>
             </span>
@@ -762,7 +762,7 @@ function App() {
 
           <p style={{ paddingLeft: 20, paddingRight: 20, marginBottom:0 }}>
             <label style={welcomeTextStyleMobile}>
-              Refresh the page if you want to play again!
+              Refresh the page if you want to play again! <br />
             </label>
           </p>
         </div>
@@ -777,7 +777,9 @@ function App() {
             <label style={{borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bold", fontSize: 28, textRendering: 'optimizeLegibility'}}>
               TOP 10 SCORES<br />
             </label>
+            <span style={{maxWidth: "72%"}}> 
             {results}
+            </span>
           </pre>
 
         </span>
