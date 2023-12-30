@@ -107,6 +107,7 @@ function App() {
   let answerInput = useRef(null);
   let [nextQuestionReady, setNextQuestionReady] = useState(true);
   let [finishIsHover, setFinishIsHover] = useState();
+  let [submitButtonIsHover, setSubmitButtonIsHover] = useState();
   let [clock, setClock] = useState("0:00");
   let [dots, dotsAdded] = useState("");
   let [thankyouContentHiddenState, thankyouContentSetHiddenState] = useState(true)
@@ -261,6 +262,16 @@ function App() {
 
   const handleButtonHoverOut = () => {
     setButtonIsHover(false);
+  }
+
+  
+  const handleSubmitButtonHoverIn = () => {
+    setSubmitButtonIsHover(true);
+  }
+
+  
+  const handlesubmitButtonHoverOut = () => {
+    setSubmitButtonIsHover(false);
   }
 
 
@@ -425,7 +436,7 @@ function App() {
             </label>
             <label style={welcomeTextStyle}>
               The 'cryptic' clue given SHOULD refer to a band or artist (except the clues are often rubbish, so good luck). The initials of the artist are also shown to help you but this doesn't always help, sadly.
-              When you've written your answer (not case sensitive), press ENTER/RETURN and if you get it right, your score will increase.  If you can't work out an answer, click 'BONG!' - this will reveal it. If you don't know the answer, click the question to skip to the next question.<br /> <br />
+              When you've written your answer (not case sensitive), press ENTER/RETURN or click SUBMIT and if you get it right, your score will increase.  If you can't work out an answer, click 'BONG!' - this will reveal it. If you don't know the answer, click the question to skip to the next question.<br /> <br />
               If you turn on sounds, there are some classic 'annoyed Ricky' moments from the podcasts (basically him berating Karl) which will play as a little reward if you get your question right. <br /> <br />
               You will have 25 questions to answer - there are many more questions than this so if you want to try different questions, refresh the page!<br /><br />
               If you enter your name in the text box before clicking 'START', your score will be recorded and you can view your score amongst your peers at the end IF you make the top 10 :).
@@ -467,16 +478,21 @@ function App() {
               type="text" ref={answerInput} onChange={(event) => { updateAnswerState(event.target.value); }} onKeyDown={(event) => { if (event.key == 'Enter') { checkAnswer() }; }}
               style={{ marginRight: 5, alignContent: 'center', width: 520, backgroundColor: 'beige', borderRadius: 5, border: "2px solid", fontWeight: 'bolder', fontSmooth: 'always', fontFamily: 'Calibri', fontSize: 35 }}>
             </input>
+            <label onMouseEnter={handleSubmitButtonHoverIn} onMouseLeave={handlesubmitButtonHoverOut} onClick={async () => { checkAnswer();}} hidden={buttonHideState} style={{ margin: 10, marginInline:5, whiteSpace: 'pre-wrap', borderRadius:5, backgroundColor: submitButtonIsHover ? 'lightgreen' : 'green', border: '4px dotted', borderColor: submitButtonIsHover ? 'lightgreen' : 'green', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: submitButtonIsHover ? 'black' : 'white', alignContent: 'center'}}>
+              {" SUBMIT "}
+            </label>
             <label
               style={answerTextStyle} hidden={showAnswerState} >
               {"Answer: " + "'" + a + "'"}
             </label>
+            <p>
             <label onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { updateShowAnswerState(false); updateAnswerInputHidden(true); clueHideNewState(true); buttonHideNewState(true); }} hidden={buttonHideState} style={{ whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'tomato' : 'orangered', width: 100, border: '4px dotted', borderColor: buttonIsHover ? 'tomato' : 'orangered', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center', marginInline: 5 }}>
               {" BONG "}
             </label>
             <label onClick={async () => { addingDots = true;[finalScore, finalTime] = [tallyState, secondsElapsed]; console.log([finalScore, finalTime]); mainContentHiddenNewState(true); startContentHiddenNewState(true); thankyouContentSetHiddenState(false); setResultsHiddenState(false); setResults(await Process([finalScore, finalTime, nameInput])); dotsAdded(".") }} onMouseEnter={handleFinishHoverIn} onMouseLeave={handleFinishHoverOut} hidden={finishButtonHideState} style={{ whiteSpace: 'pre-wrap', marginRight: 20, borderRadius: 5, backgroundColor: finishIsHover ? 'lightgreen' : 'green', width: 100, border: '4px dotted', borderColor: finishIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: finishIsHover ? 'black' : 'white', alignContent: 'center' }}>
               {" FINISH "}
             </label>
+            </p>
           </span>
           <p>
             <span style={{ marginTop: 40 }}>
@@ -547,7 +563,7 @@ function App() {
             </label>
             <label style={welcomeTextStyle}>
               The 'cryptic' clue given SHOULD refer to a band or artist (except the clues are often rubbish, so good luck). The initials of the artist are also shown to help you but this doesn't always help, sadly.
-              When you've written your answer (not case sensitive), press 'SUBMIT' and if you get it right, your score will increase.  If you can't work out an answer, click 'BONG!' - this will reveal it. If you don't know the answer, click the question to skip to the next question.<br /> <br />
+              When you've written your answer (not case sensitive), click 'SUBMIT' and if you get it right, your score will increase.  If you can't work out an answer, click 'BONG!' - this will reveal it. If you don't know the answer, click the question to skip to the next question.<br /> <br />
               If you turn on sounds, there are some classic 'annoyed Ricky' moments from the podcasts (basically him berating Karl) which will play as a little reward if you get your question right. <br /> <br />
               You will have 25 questions to answer - there are many more questions than this so if you want to try different questions, refresh the page!<br /><br />
               If you enter your name in the text box before clicking 'START', your score will be recorded and you can view your score amongst your peers at the end IF you make the top 10 :).
@@ -588,7 +604,7 @@ function App() {
               type="text" ref={answerInput} onChange={(event) => { updateAnswerState(event.target.value); }} onKeyDown={(event) => { if (event.key == 'Enter') { checkAnswer() }; }}
               style={{ alignContent: 'center', width: "60%", backgroundColor: 'beige', borderRadius:5, border: "2px solid", fontWeight: 'bolder', fontSmooth: 'always', fontFamily: 'Calibri', fontSize: 35}}>
             </input>
-            <label onClick={async () => { checkAnswer();}} hidden={buttonHideState} style={{ paddingTop: 1, whiteSpace: 'pre-wrap', margin: 5, borderRadius: 5, backgroundColor: finishIsHover ? 'lightgreen' : 'green', width: "30%", border: '5px dotted', borderColor: finishIsHover ? 'lightgreen' : 'green', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 34, fontWeight: 'bolder', color: finishIsHover ? 'black' : 'white', alignContent: 'center' }}>
+            <label onMouseEnter={handleSubmitButtonHoverIn} onMouseLeave={handlesubmitButtonHoverOut} onClick={async () => { checkAnswer();}} hidden={buttonHideState} style={{ paddingTop: 1, whiteSpace: 'pre-wrap', margin: 5, borderRadius: 5, backgroundColor: submitButtonIsHover ? 'lightgreen' : 'green', width: "30%", border: '5px dotted', borderColor: submitButtonIsHover ? 'lightgreen' : 'green', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 34, fontWeight: 'bolder', color: submitButtonIsHover ? 'black' : 'white', alignContent: 'center' }}>
               {" SUBMIT "}
             </label>
             <label
@@ -673,7 +689,7 @@ function App() {
             </label>
             <label style={welcomeTextStyleMobile}>
               The 'cryptic' clue given SHOULD refer to a band or artist (except the clues are often rubbish, so good luck). The initials of the artist are also shown to help you but this doesn't always help, sadly.
-              When you've written your answer (not case sensitive), press 'SUBMIT' and if you get it right, your score will increase.  If you can't work out an answer, click 'BONG!' - this will reveal it. If you don't know the answer, click the question to skip to the next question.<br /> <br />
+              When you've written your answer (not case sensitive), click 'SUBMIT' and if you get it right, your score will increase.  If you can't work out an answer, click 'BONG!' - this will reveal it. If you don't know the answer, click the question to skip to the next question.<br /> <br />
               If you turn on sounds, there are some classic 'annoyed Ricky' moments from the podcasts (basically him berating Karl) which will play as a little reward if you get your question right. <br /> <br />
               You will have 25 questions to answer - there are many more questions than this so if you want to try different questions, refresh the page!<br /><br />
               If you enter your name in the text box before clicking 'START', your score will be recorded and you can view your score amongst your peers at the end IF you make the top 10 :).
@@ -711,7 +727,7 @@ function App() {
               type="text" ref={answerInput} onChange={(event) => { updateAnswerState(event.target.value); }} onKeyDown={(event) => { if (event.key == 'Enter') { checkAnswer() }; }}
               style={{ alignContent: 'center', width: "60%", backgroundColor: 'beige', borderRadius: 5, border: "2px solid", fontWeight: 'bolder', fontSmooth: 'always', fontFamily: 'Calibri', fontSize: 22, borderRadius: 5}}>
             </input>
-            <label onClick={async () => { checkAnswer();}} hidden={buttonHideState} style={{ margin: 10, marginInline:5, whiteSpace: 'pre-wrap', borderRadius:5, backgroundColor: finishIsHover ? 'lightgreen' : 'green', border: '4px dotted', borderColor: finishIsHover ? 'lightgreen' : 'green', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: finishIsHover ? 'black' : 'white', alignContent: 'center', paddingTop: 3 }}>
+            <label onClick={async () => { checkAnswer();}} hidden={buttonHideState} style={{ margin: 10, marginInline:5, whiteSpace: 'pre-wrap', borderRadius:5, backgroundColor: submitButtonIsHover ? 'lightgreen' : 'green', border: '4px dotted', borderColor: submitButtonIsHover ? 'lightgreen' : 'green', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: submitButtonIsHover ? 'black' : 'white', alignContent: 'center', paddingTop: 3 }}>
               {" SUBMIT "}
             </label>
             </span>
