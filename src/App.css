@@ -2,10 +2,19 @@
   text-align: center;
   user-select: none;
   -webkit-user-drag: none;
+  height: fit-content;
+}
+
+
+.App-mobile {
+  text-align: center;
+  user-select: none;
+  -webkit-user-drag: none;
+  height: 100%
 }
 
 .App-background {
-  height: 200px;
+  min-width: 768px;
   opacity: 70%;
   position:absolute;
   right: 0;
@@ -14,19 +23,28 @@
   bottom: 80;
   margin: auto;
   size: auto;
-
- 
-  @media (min-width: 1400px) {
-  .disable-app {
-    display: none;
-  }
-  }
-
-
   padding-top: 0px;
+  max-width: 100%;
   -webkit-user-drag: none;
   
 }
+
+
+.App-background-mobile {
+  opacity: 70%;
+  position:absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 80;
+  margin: auto;
+  size: auto;
+  padding-top: 0px;
+  max-width: 100%;
+  -webkit-user-drag: none;
+  
+}
+
 
 .App-logo {
   height: 950px;
@@ -36,13 +54,32 @@
   resize: both;
   -webkit-user-drag: none;
   size: auto;
+  max-width: 100%
+}
+
+.App-logo-mobile {
+  height: 280px;
+  opacity: 80%;
+  pointer-events: none;
+  user-select: none;
+  resize: both;
+  -webkit-user-drag: none;
+  max-width: 100%;
+  size: auto;
 }
 
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
-    margin-top: 70px;
+    margin-top: 10px;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo-mobile {
+    animation: App-logo-spin infinite 20s linear;
+    margin-top: 60px;
   }
 }
 
@@ -55,6 +92,8 @@
 
 .App-header {
   background-color: #b3d2b0;
+  max-width: 100%;
+  max-height: 100%;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -63,6 +102,20 @@
   font-size: calc(10px + 2vmin);
   color: rgb(30, 22, 22);
 }
+
+.App-header-mobile {
+  background-color: #b3d2b0;
+  max-width: 100%;
+  max-height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: rgb(30, 22, 22);
+}
+
 
 .App-link {
   color: #61dafb;

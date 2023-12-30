@@ -82,7 +82,6 @@ This vegetable started life down under. (KO) = Kelly Osbourne (cauli Oz born)
 The things that you normally find on the beach have been found floating round the moon. (TS) = The Specials (the space shells)
 If you put that many in the post I'm surprised I didn't receive one. (FC) = 50 Cent (fifty sent)#
 That Teletubby has got lice. (TP) = The Police
-(Karl messed up this clue. It was supposed to be "That Teletubby has got nits.")
 I'm saving that money to buy condoms. (JC) = Johnny Cash
 When you're making bread, add a bit of color for a change. (D) = Dido (dye dough)
 If you go to Chepstow you will. (S) = Seahorses (see horses)

@@ -138,24 +138,13 @@ export async function Process([tally, elapsedseconds, name]) {
         var score = `${newData[x]['score']}`;
         var time = `${newData[x]['time']}`;
         var position = `${x + 1}`
-        dataString += `${position}: ${name}   --   (${score} questions correct in ${time} seconds) \n`;
+        dataString += `${position}: ${name} - (${score} in ${time} seconds) \n`;
       }
+    
+      return dataString;
+      
 
-      const htmlResults = () => (
-        <span style={{ maxWidth: 500 }}>
-          <pre style={{
-             borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 30, textRendering: 'optimizeLegibility'
-          }}>
-            <label style={{borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bold", fontSize: 80, textRendering: 'optimizeLegibility'}}>
-              TOP 10 SCORES<br />
-            </label>
-            {dataString}
-          </pre>
-
-        </span>
-      )
-
-      return htmlResults;
+      
     }
   }
   catch {

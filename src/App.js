@@ -74,6 +74,12 @@ const nameTextStyle2 = {
   paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bold", fontSize: 35, textRendering: 'optimizeLegibility'
 }
 
+const nameTextStyleMobile = {
+  paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bold", fontSize: 18, textRendering: 'optimizeLegibility'
+}
+
+
+
 
 function App() {
   let [soundPlayingState, soundPlayingNewState] = useState(false);
@@ -321,25 +327,65 @@ function App() {
     paddingLeft: 20, paddingRight: 20, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 140, textRendering: 'optimizeLegibility', maxWidth: 100, border: "8px dotted"
   }
 
+
+  const headerTextStyleTablet = {
+    paddingLeft: 20, paddingRight: 20, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 90, textRendering: 'optimizeLegibility', maxWidth: 100, border: "8px dotted"
+  }
+
+
+  const headerTextStyleMobile = {
+    paddingLeft: 20, paddingRight: 20, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 40, textRendering: 'optimizeLegibility', maxWidth: 100, border: "8px dotted"
+  }
+
   const headerTextStyle2 = {
     paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 120, textRendering: 'optimizeLegibility', maxWidth: 100
+  }
+
+  const headerTextStyle2Mobile = {
+    paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 30, textRendering: 'optimizeLegibility', maxWidth: "100%"
   }
 
   const welcomeTextStyle = {
     paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 30, textRendering: 'optimizeLegibility', maxWidth: 100
   }
 
+  const welcomeTextStyleTablet = {
+    paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 25, textRendering: 'optimizeLegibility', maxWidth: 100
+  }
+
+
+  const welcomeTextStyleMobile = {
+    paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 18, textRendering: 'optimizeLegibility', maxWidth: 100
+  }
+
+
 
   const questionTextStyle = {
-    paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 40, textRendering: 'optimizeLegibility', maxWidth: 100
+    paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 40, textRendering: 'optimizeLegibility'
+  }
+
+
+  const questionTextStyleTablet = {
+    paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 30, textRendering: 'optimizeLegibility'
+  }
+
+
+  const questionTextStyleMobile = {
+    paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 18, textRendering: 'optimizeLegibility'
   }
 
   const answerTextStyle = {
-    paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: '#4a6061', backgroundColor: 'white', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 39, textRendering: 'optimizeLegibility', maxWidth: 100
+    paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: '#4a6061', backgroundColor: 'white', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 39, textRendering: 'optimizeLegibility'
   }
 
-  const resultTextStyle = {
-    paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', backgroundColor: 'white', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 14, textRendering: 'optimizeLegibility', width: 1200
+  const answerTextStyleTablet = {
+    paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: '#4a6061', backgroundColor: 'white', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 28, textRendering: 'optimizeLegibility'
+  }
+
+
+
+  const answerTextStyleMobile = {
+    paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: '#4a6061', backgroundColor: 'white', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, textRendering: 'optimizeLegibility'
   }
 
   const soundButtonStyle =
@@ -355,9 +401,9 @@ function App() {
 
   let pageLoaded = (
 
-    <div className="App" position="fixed">
+    <div className="App" position="fixed" style={{ maxWidth: '100%', maxHeight: '100%', color: 'black', flex: 'auto'}}>
       <header className="App-header" >
-        <span id="startContent" hidden={startContentHiddenState} style={{ border: "4px solid", width: 1400, color: 'black', paddingBottom: 50 }}>
+        <span id="startContent" hidden={startContentHiddenState} style={{color: 'black', paddingBottom: 50 }}>
           <label style={{ fontSize: "4px" }}>
             <br />
           </label>
@@ -398,8 +444,8 @@ function App() {
           </span>
         </span>
 
-        <span id="main-Content" hidden={mainContentHiddenState}>
-          <img src={rb2} className="App-background" />
+        <span id="main-Content" hidden={mainContentHiddenState} style={{maxWidth: '90%'}}>
+          <img src={rb2} className="App-background" style={{maxWidth: '100%'}}/>
 
           <img src={logo} className="App-logo" alt="logo" />
           <p>
@@ -413,7 +459,7 @@ function App() {
               You know what you've done there, dont you? You've put the nail in the coffin of Rockbusters. No more questions left, play a record!
             </label>
           </p>
-          <span>
+          <span style={{maxWidth: '90%'}}>
             <label style={soundButtonStyle} onClick={handleSoundButtonClick} onMouseEnter={handleSoundButtonHoverIn} onMouseLeave={handleSoundButtonHoverOut} hidden={buttonHideState}>
               {soundButtonText}
             </label>
@@ -442,7 +488,7 @@ function App() {
           </p>
         </span>
 
-        <div id="ThankyouContent" hidden={thankyouContentHiddenState} style={{ border: "4px solid", width: 1200, color: 'black' }}>
+        <div id="ThankyouContent" hidden={thankyouContentHiddenState} style={{ width: '100%', color: 'black' }}>
           <label style={headerTextStyle2}>
             THANKYOU FOR PLAYING :)
           </label>
@@ -456,8 +502,18 @@ function App() {
         <label style={{ fontSize: 4 }}>
           <br />
         </label>
-        <div id="ResultContent" hidden={resultsHiddenState} style={{ fontFamily: "calibri", border: "4px solid", width: 1200, color: 'black', fontWeight: "bolder" }}>
-          {results}
+        <div id="ResultContent" hidden={resultsHiddenState} style={{ fontFamily: "calibri", border: "4px solid", color: 'black', fontWeight: "bolder" }}>
+        <span style={{ width: 1200 }}>
+          <pre style={{ width: 1200,
+             borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 30, textRendering: 'optimizeLegibility'
+          }}>
+            <label style={{borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bold", fontSize: 80, textRendering: 'optimizeLegibility'}}>
+              TOP 10 SCORES<br />
+            </label>
+            {results}
+          </pre>
+
+        </span>
 
         </div>
 
@@ -468,23 +524,280 @@ function App() {
 
   )
 
-  const isAppDisabled = window.matchMedia('(min-width: 1400px)').matches;
-  if (!isAppDisabled) {
+
+    
+  let tabletPageLoaded = (
+
+    <div className="App" position="fixed">
+      <header className="App-header">
+        <span id="startContent" hidden={startContentHiddenState} style={{ maxWidth: '100%', color: 'black', paddingBottom: 10}}>
+          <label style={{ fontSize: "4px" }}>
+            <br />
+          </label>
+          <span>
+            <span>
+              <label style={headerTextStyleTablet} onClick={() => { if (musicPlayingState == false) { playTheme(); musicPlayingNewState(true) } }}>
+                ROCKBUSTERS<br />
+              </label>
+            </span>
+          </span>
+          <p style={{ padding: 40 }}>
+            <label style={questionTextStyle}>
+              HOW TO PLAY: <br /> <br />
+            </label>
+            <label style={welcomeTextStyle}>
+              The 'cryptic' clue given SHOULD refer to a band or artist (except the clues are often rubbish, so good luck). The initials of the artist are also shown to help you but this doesn't always help, sadly.
+              When you've written your answer (not case sensitive), press ENTER/RETURN and if you get it right, your score will increase.  If you can't work out an answer, click 'BONG!' - this will reveal it. If you don't know the answer, click the question to skip to the next question.<br /> <br />
+              If you turn on sounds, there are some classic 'annoyed Ricky' moments from the podcasts (basically him berating Karl) which will play as a little reward if you get your question right. <br /> <br />
+              You will have 25 questions to answer - there are many more questions than this so if you want to try different questions, refresh the page!<br /><br />
+              If you enter your name in the text box before clicking 'START', your score will be recorded and you can view your score amongst your peers at the end IF you make the top 10 :).
+
+
+
+            </label>
+          </p>
+          <span>
+            <input id='nameText' onChange={(event) => { nameInput = event.target.value }}
+              style={nameStateStyle}>
+            </input>
+            <label style={{ marginLeft: 40, whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'lightgreen' : 'green', width: 200, border: '4px dotted', borderColor: buttonIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center' }} onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { startContentHiddenNewState(true); mainContentHiddenNewState(false); secondsElapsed = 0; sound.fade(0.6, 0.0, 3000); }}>
+              {" START "}
+            </label>
+          </span>
+        </span>
+
+        <span id="main-Content" hidden={mainContentHiddenState} style={{maxWidth: '90%'}}>
+          <img src={rb2} className="App-background" />
+
+          <img src={logo} className="App-logo" alt="logo" />
+          <span>
+          <p>
+            <label hidden={questionHiddenState}
+              onClick={handleChange} onMouseEnter={handleHoverIn} onMouseLeave={handleHoverOut}
+              style={questionTextStyleTablet}>
+              {"`" + state + "`" + "      ('" + c + "')"}
+            </label>
+            <label hidden={endHiddenState}
+              style={questionTextStyleTablet}>
+              You know what you've done there, dont you? You've put the nail in the coffin of Rockbusters. No more questions left, play a record!
+            </label>
+          </p>
+          </span>
+          <span>
+            <input id='answerText' hidden={answerInputHidden}
+              type="text" ref={answerInput} onChange={(event) => { updateAnswerState(event.target.value); }} onKeyDown={(event) => { if (event.key == 'Enter') { checkAnswer() }; }}
+              style={{ marginRight: 5, alignContent: 'center', width: 520, backgroundColor: 'beige', borderRadius: 5, border: "2px solid", fontWeight: 'bolder', fontSmooth: 'always', fontFamily: 'Calibri', fontSize: 35 }}>
+            </input>
+            <label
+              style={answerTextStyleTablet} hidden={showAnswerState} >
+              {"Answer: " + "'" + a + "'"}
+            </label>
+            <p>
+            <span>
+            <label onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { updateShowAnswerState(false); updateAnswerInputHidden(true); clueHideNewState(true); buttonHideNewState(true); }} hidden={buttonHideState} style={{ whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'tomato' : 'orangered', width: 100, border: '4px dotted', borderColor: buttonIsHover ? 'tomato' : 'orangered', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center', marginInline: 5 }}>
+              {" BONG "}
+            </label>
+            <label onClick={async () => { addingDots = true;[finalScore, finalTime] = [tallyState, secondsElapsed]; console.log([finalScore, finalTime]); mainContentHiddenNewState(true); startContentHiddenNewState(true); thankyouContentSetHiddenState(false); setResultsHiddenState(false); setResults(await Process([finalScore, finalTime, nameInput])); dotsAdded(".") }} onMouseEnter={handleFinishHoverIn} onMouseLeave={handleFinishHoverOut} hidden={finishButtonHideState} style={{ whiteSpace: 'pre-wrap', marginRight: 20, borderRadius: 5, backgroundColor: finishIsHover ? 'lightgreen' : 'green', width: 100, border: '4px dotted', borderColor: finishIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: finishIsHover ? 'black' : 'white', alignContent: 'center' }}>
+              {" FINISH "}
+            </label>
+            </span>
+            </p>
+          </span>
+          
+          <p>
+            <span style={{ marginTop: 40 }}>
+              <label className="App-Tally"
+                style={{ fontWeight: "bolder", border: "3px solid", paddingLeft: 15, paddingRight: 10, borderRadius: 5, marginRight: 2, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 45, textRendering: 'optimizeLegibility', maxWidth: 100 }}>
+                Score: {tallyState} / {total}
+              </label>
+            </span>
+          </p>
+        </span>
+
+        <div id="ThankyouContent" hidden={thankyouContentHiddenState} style={{ color: 'black' }}>
+          <label style={headerTextStyle2}>
+            THANKYOU FOR PLAYING :)
+          </label>
+
+          <p style={{ padding: 20, marginBottom: 20 }}>
+            <label style={welcomeTextStyle}>
+              Refresh the page if you want to play again!
+            </label>
+          </p>
+        </div>
+        <label style={{ fontSize: 4 }}>
+          <br />
+        </label>
+        <div id="ResultContent" hidden={resultsHiddenState} style={{ fontFamily: "calibri", border: "4px solid", color: 'black', fontWeight: "bolder",  width: 768, fontWeight: "bolder"}}>
+        <span>
+        <pre style={{
+             borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 24, textRendering: 'optimizeLegibility'
+          }}>
+            <label style={{borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bold", fontSize: 38, textRendering: 'optimizeLegibility'}}>
+              TOP 10 SCORES<br />
+            </label>
+            {results}
+          </pre>
+        </span>
+       
+        </div>
+
+      </header>
+
+    </div>
+  )
+
+
+  let mobilePageLoaded = (
+
+    <div className="App-mobile" position="fixed">
+      <header className="App-header-mobile" >
+        <span id="startContent" hidden={startContentHiddenState} style={{ width: '100%', color: 'black', paddingBottom: 10}}>
+          <label style={{ fontSize: "4px" }}>
+            <br />
+          </label>
+          <span>
+            <span>
+              <label style={headerTextStyleMobile}>
+                ROCKBUSTERS<br />
+              </label>
+            </span>
+
+          </span>
+          <p style={{ padding: 40 }}>
+            <label style={questionTextStyleMobile}>
+              HOW TO PLAY: <br /> <br />
+            </label>
+            <label style={welcomeTextStyleMobile}>
+              The 'cryptic' clue given SHOULD refer to a band or artist (except the clues are often rubbish, so good luck). The initials of the artist are also shown to help you but this doesn't always help, sadly.
+              When you've written your answer (not case sensitive), press ENTER/RETURN and if you get it right, your score will increase.  If you can't work out an answer, click 'BONG!' - this will reveal it. If you don't know the answer, click the question to skip to the next question.<br /> <br />
+              If you turn on sounds, there are some classic 'annoyed Ricky' moments from the podcasts (basically him berating Karl) which will play as a little reward if you get your question right. <br /> <br />
+              You will have 25 questions to answer - there are many more questions than this so if you want to try different questions, refresh the page!<br /><br />
+              If you enter your name in the text box before clicking 'START', your score will be recorded and you can view your score amongst your peers at the end IF you make the top 10 :).
+            </label>
+          </p>
+          <span>
+            <input id='nameText' onChange={(event) => { nameInput = event.target.value }}
+              style={nameTextStyleMobile}>
+            </input>
+            <label style={{ marginLeft: 40, whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'lightgreen' : 'green', width: 200, border: '4px dotted', borderColor: buttonIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center' }} onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { startContentHiddenNewState(true); mainContentHiddenNewState(false); secondsElapsed = 0; sound.fade(0.6, 0.0, 3000); }}>
+              {" START "}
+            </label>
+          </span>
+        </span>
+
+        <span id="main-Content" hidden={mainContentHiddenState}>
+          <img src={rb2} className="App-background-mobile"/>
+
+          <img src={logo} className="App-logo-mobile" alt="logo-mobile"/>
+          <p>
+            <label hidden={questionHiddenState}
+              onClick={handleChange} onMouseEnter={handleHoverIn} onMouseLeave={handleHoverOut}
+              style={questionTextStyleMobile}>
+              {"`" + state + "`" + "      ('" + c + "')"}
+            </label>
+            <label hidden={endHiddenState}
+              style={questionTextStyleMobile}>
+              You know what you've done there, dont you? You've put the nail in the coffin of Rockbusters. No more questions left, play a record!
+            </label>
+          </p>
+          <span>
+      
+            <input id='answerText' hidden={answerInputHidden}
+              type="text" ref={answerInput} onChange={(event) => { updateAnswerState(event.target.value); }} onKeyDown={(event) => { if (event.key == 'Enter') { checkAnswer() }; }}
+              style={{ marginRight: 5, alignContent: 'center', width: 300, backgroundColor: 'beige', borderRadius: 5, border: "2px solid", fontWeight: 'bolder', fontSmooth: 'always', fontFamily: 'Calibri', fontSize: 18 }}>
+            </input>
+            </span>
+            <p>
+            <label
+              style={answerTextStyleMobile} hidden={showAnswerState} >
+              {"Answer: " + "'" + a + "'"}
+            </label>
+            <label onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { updateShowAnswerState(false); updateAnswerInputHidden(true); clueHideNewState(true); buttonHideNewState(true); }} hidden={buttonHideState} style={{ whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'tomato' : 'orangered', width: 100, border: '4px dotted', borderColor: buttonIsHover ? 'tomato' : 'orangered', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center', marginInline: 5 }}>
+              {" BONG "}
+            </label>
+            <label onClick={async () => { addingDots = true;[finalScore, finalTime] = [tallyState, secondsElapsed]; console.log([finalScore, finalTime]); mainContentHiddenNewState(true); startContentHiddenNewState(true); thankyouContentSetHiddenState(false); setResultsHiddenState(false); setResults(await Process([finalScore, finalTime, nameInput])); dotsAdded(".") }} onMouseEnter={handleFinishHoverIn} onMouseLeave={handleFinishHoverOut} hidden={finishButtonHideState} style={{ whiteSpace: 'pre-wrap', marginRight: 20, borderRadius: 5, backgroundColor: finishIsHover ? 'lightgreen' : 'green', width: 100, border: '4px dotted', borderColor: finishIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: finishIsHover ? 'black' : 'white', alignContent: 'center' }}>
+              {" FINISH "}
+            </label>
+          </p>
+          <p>
+            <span style={{ marginTop: 40 }}>
+              <label className="App-Tally"
+                style={{ fontWeight: "bolder", border: "3px solid", paddingLeft: 15, paddingRight: 10, borderRadius: 5, marginRight: 2, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 20, textRendering: 'optimizeLegibility', maxWidth: 100 }}>
+                Score: {tallyState} / {total}
+              </label>
+            </span>
+          </p>
+        </span>
+
+        <div id="ThankyouContent" hidden={thankyouContentHiddenState} style={{ width: 320, color: 'black' }}>
+          <label style={headerTextStyle2Mobile}>
+            THANKYOU FOR PLAYING :)
+          </label>
+
+          <p style={{ paddingLeft: 20, paddingRight: 20, marginBottom:0 }}>
+            <label style={welcomeTextStyleMobile}>
+              Refresh the page if you want to play again!
+            </label>
+          </p>
+        </div>
+        <label style={{ fontSize: 4 }}>
+          <br />
+        </label>
+        <div id="ResultContent" hidden={resultsHiddenState} style={{ fontFamily: "calibri", border: "4px solid", width: 320, color: 'black', fontWeight: "bolder" }}>
+        <span style={{ width: 320 }}>
+          <pre style={{
+             borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 14, textRendering: 'optimizeLegibility'
+          }}>
+            <label style={{borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bold", fontSize: 28, textRendering: 'optimizeLegibility'}}>
+              TOP 10 SCORES<br />
+            </label>
+            {results}
+          </pre>
+
+        </span>
+
+        </div>
+
+
+      </header>
+
+    </div>
+
+  )
+
+
+
+  const isAppDisabled = window.matchMedia('(min-width: 1366px)').matches;
+  const isTabletEnabled = window.matchMedia('(min-width: 768px').matches;
+  const isMobileEnabled = window.matchMedia('(min-width: 320px').matches;
+
+  if (!isAppDisabled && !isTabletEnabled && !isMobileEnabled) {
     return [
       <header className="App-header">
         <div>
           <label>
-            Sorry - this page isn't designed for use below 1400px.
+            Sorry - this page isn't designed for use below 320px.
           </label>
         </div>
       </header>
-
     ]
   }
-  else {
-    return pageLoaded;
+
+  if ((isTabletEnabled && isMobileEnabled) && !isAppDisabled) {
+    return tabletPageLoaded
   }
+  if (isMobileEnabled && (!isTabletEnabled && !isAppDisabled)) {
+    return mobilePageLoaded
+  }
+  else {
+    return pageLoaded
+  }
+
+
+
 }
+
 
 
 
