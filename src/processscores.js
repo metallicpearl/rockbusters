@@ -91,7 +91,7 @@ export async function Process([tally, elapsedseconds, name]) {
       var currentRecordCount = await existingData.length;
       for (var x = 0; x < currentRecordCount; x++) {
         var nameValue = (await existingData[x]['name']);
-        var nameBracketsReplaced = nameValue.replaceAll('[','').replaceAll(']','');
+        var nameBracketsReplaced = nameValue.replaceAll('[','').replaceAll(']','').replaceAll('<< YOU','').replaceAll('YOU >>','');
         var newname = nameBracketsReplaced;
         if (newname == "[No name provided]" || newname == "" || newname == "[]")
         {
@@ -103,7 +103,7 @@ export async function Process([tally, elapsedseconds, name]) {
         var valueToAdd = JSON.parse(`{"name" : "${newname}", "score" : "${newscore}", "time" : "${newtime}", "date": "${currentdate}", "new":"false"}`);
         tempHoldArray.push(await valueToAdd);
       }
-      tempHoldArray.push(await JSON.parse(`{"name" : "[${name}]", "score" : "${tally}", "time" : "${elapsedseconds}", "date": "${currentdate}", "new":"true"}`));
+      tempHoldArray.push(await JSON.parse(`{"name" : "YOU >> [${name}] << YOU", "score" : "${tally}", "time" : "${elapsedseconds}", "date": "${currentdate}", "new":"true"}`));
       for (var x = 0; x < currentRecordCount; x++) {
         var idToDelete = await existingData[x]['_id']
         idsToDelete.push(JSON.stringify('_id') + ":" + JSON.stringify(idToDelete));
@@ -125,15 +125,9 @@ export async function Process([tally, elapsedseconds, name]) {
         };
       }
 
-      function removeDuplicates(tempHoldArray) {
-        return tempHoldArray.filter((item,
-            index) => tempHoldArray.indexOf(item) === index);
-        }
-
       console.log(tempHoldArray);
       await removeData(idsToDelete);
       await arrayShorten();
-      //await removeDuplicates();
       await pushNewData(result);
 
       var newData = JSON.parse(await getData());

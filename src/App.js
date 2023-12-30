@@ -755,7 +755,7 @@ function App() {
           </p>
         </span>
 
-        <div id="ThankyouContent" hidden={thankyouContentHiddenState} style={{ width: 320, color: 'black' }}>
+        <div id="ThankyouContent" hidden={thankyouContentHiddenState} style={{ maxWidth: "80%", color: 'black' }}>
           <label style={headerTextStyle2Mobile}>
             THANKYOU FOR PLAYING :)
           </label>
@@ -769,8 +769,8 @@ function App() {
         <label style={{ fontSize: 4 }}>
           <br />
         </label>
-        <div id="ResultContent" hidden={resultsHiddenState} style={{ fontFamily: "calibri", border: "4px solid", width: 320, color: 'black', fontWeight: "bolder" }}>
-        <span style={{ width: 320 }}>
+        <div id="ResultContent" hidden={resultsHiddenState} style={{ fontFamily: "calibri", border: "4px solid", maxWidth: "80%", color: 'black', fontWeight: "bolder" }}>
+        <span style={{ maxwidth: "75%" }}>
           <pre style={{
              borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 14, textRendering: 'optimizeLegibility'
           }}>
