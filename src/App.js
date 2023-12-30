@@ -727,7 +727,7 @@ function App() {
               type="text" ref={answerInput} onChange={(event) => { updateAnswerState(event.target.value); }} onKeyDown={(event) => { if (event.key == 'Enter') { checkAnswer() }; }}
               style={{ alignContent: 'center', width: "60%", backgroundColor: 'beige', borderRadius: 5, border: "2px solid", fontWeight: 'bolder', fontSmooth: 'always', fontFamily: 'Calibri', fontSize: 16, borderRadius: 5}}>
             </input>
-            <label onClick={async () => { checkAnswer();}} hidden={buttonHideState} style={{ margin: 5, whiteSpace: 'pre-wrap', borderRadius:5, backgroundColor: submitButtonIsHover ? 'lightgreen' : 'green', border: '4px dotted', borderColor: submitButtonIsHover ? 'lightgreen' : 'green', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: submitButtonIsHover ? 'black' : 'white', alignContent: 'center', paddingTop: 3, paddingBottom: 3 }}>
+            <label onClick={async () => { checkAnswer();}} hidden={buttonHideState} style={{ margin: 5, whiteSpace: 'pre-wrap', borderRadius:5, backgroundColor: submitButtonIsHover ? 'lightgreen' : 'green', border: '4px dotted', borderColor: submitButtonIsHover ? 'lightgreen' : 'green', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: submitButtonIsHover ? 'black' : 'white', alignContent: 'center', paddingTop: 1, paddingBottom: 3 }}>
               {" SUBMIT "}
             </label>
             </span>
