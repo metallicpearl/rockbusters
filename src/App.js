@@ -382,7 +382,7 @@ function App() {
 
 
   const questionTextStyleMobile = {
-    maxWidth: "90%", borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 18, textRendering: 'geometricPrecision'
+    maxWidth: "90%", borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 16, textRendering: 'geometricPrecision'
   }
 
   const answerTextStyle = {
@@ -699,7 +699,7 @@ function App() {
             <input id='nameText' onChange={(event) => { nameInput = event.target.value }}
               style={nameTextStyleMobile}>
             </input>
-            <label style={{ paddingTop: 3, marginLeft: 40, whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'lightgreen' : 'green', width: 200, border: '4px dotted', borderColor: buttonIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center' }} onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { startContentHiddenNewState(true); mainContentHiddenNewState(false); secondsElapsed = 0; sound.fade(0.6, 0.0, 3000); }}>
+            <label style={{ marginLeft: 40, whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'lightgreen' : 'green', maxWidth: "60%", border: '4px dotted', borderColor: buttonIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center' }} onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { startContentHiddenNewState(true); mainContentHiddenNewState(false); secondsElapsed = 0; sound.fade(0.6, 0.0, 3000); }}>
               {" START "}
             </label>
           </span>
@@ -725,9 +725,9 @@ function App() {
           <span maxWidth="90%">
             <input id='answerText' hidden={answerInputHidden}
               type="text" ref={answerInput} onChange={(event) => { updateAnswerState(event.target.value); }} onKeyDown={(event) => { if (event.key == 'Enter') { checkAnswer() }; }}
-              style={{ alignContent: 'center', width: "60%", backgroundColor: 'beige', border: "2px solid", fontWeight: 'bolder', fontSmooth: 'always', fontFamily: 'Calibri', fontSize: 16, borderRadius: 5}}>
+              style={{ alignContent: 'center', width: "60%", backgroundColor: 'beige', border: "2px solid", fontWeight: 'bolder', fontSmooth: 'always', fontFamily: 'Calibri', fontSize: 22, borderRadius: 5}}>
             </input>
-            <label onClick={async () => { checkAnswer();}} hidden={buttonHideState} style={{ maxWidth:30, margin: 5, whiteSpace: 'pre-wrap', borderRadius:5, backgroundColor: submitButtonIsHover ? 'lightgreen' : 'green', border: '4px dotted', borderColor: submitButtonIsHover ? 'lightgreen' : 'green', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: submitButtonIsHover ? 'black' : 'white', alignContent: 'center', paddingTop: 1, marginTop: 1, paddingBottom: 3 }}>
+            <label onClick={async () => { checkAnswer();}} hidden={buttonHideState} style={{ maxWidth:30, margin: 5, whiteSpace: 'pre-wrap', borderRadius:5, backgroundColor: submitButtonIsHover ? 'lightgreen' : 'green', border: '4px dotted', borderColor: submitButtonIsHover ? 'lightgreen' : 'green', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: submitButtonIsHover ? 'black' : 'white', alignContent: 'center'}}>
               {" SUBMIT "}
             </label>
             </span>
