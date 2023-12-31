@@ -91,11 +91,19 @@ export async function Process([tally, elapsedseconds, name]) {
       var currentRecordCount = await existingData.length;
       for (var x = 0; x < currentRecordCount; x++) {
         var nameValue = (await existingData[x]['name']);
-        var nameBracketsReplaced = nameValue.replaceAll('[','').replaceAll(']','').replaceAll('<< YOU','').replaceAll('YOU >>','');
+        var nameBracketsReplaced;
+        if (await existingData[x]['new'] == true)
+        {
+          nameBracketsReplaced = nameValue.replaceAll('[','').replaceAll(']','');
+        }
+        else
+        {
+        nameBracketsReplaced = nameValue.replaceAll('[','').replaceAll(']','').replaceAll('<< YOU','').replaceAll('YOU >>','');
+        }
         var newname = nameBracketsReplaced;
         if (newname == "[No name provided]" || newname == "" || newname == "[]")
         {
-          newname = "[(No name provided)]"
+          newname = "(No name provided)"
         }
         var newscore = await existingData[x]['score'];
         var newtime = await existingData[x]['time'];
@@ -103,7 +111,8 @@ export async function Process([tally, elapsedseconds, name]) {
         var valueToAdd = JSON.parse(`{"name" : "${newname}", "score" : "${newscore}", "time" : "${newtime}", "date": "${currentdate}", "new":"false"}`);
         tempHoldArray.push(await valueToAdd);
       }
-      tempHoldArray.push(await JSON.parse(`{"name" : "YOU >> [${name}] << YOU", "score" : "${tally}", "time" : "${elapsedseconds}", "date": "${currentdate}", "new":"true"}`));
+      var valueAdd = JSON.parse(`{"name" : "${name}", "score" : "${tally}", "time" : "${elapsedseconds}", "date": "${currentdate}", "new":"true"}`);
+      tempHoldArray.push(valueAdd);
       for (var x = 0; x < currentRecordCount; x++) {
         var idToDelete = await existingData[x]['_id']
         idsToDelete.push(JSON.stringify('_id') + ":" + JSON.stringify(idToDelete));
@@ -139,8 +148,16 @@ export async function Process([tally, elapsedseconds, name]) {
         var name = `${newData[x]['name']}`;
         var score = `${newData[x]['score']}`;
         var time = `${newData[x]['time']}`;
+        var newRow = `${newData[x]['new']}`;
         var position = `${x + 1}`
-        dataString += `${position}: ${name} - (${score} in ${time} seconds) \n`;
+        if (newRow == 'true')
+        {
+        dataString += `YOU >> ` + `${position}: ${name} - (${score} in ${time} seconds)` +  ` << YOU \n`;
+        }
+        else
+        {
+          dataString += `${position}: ${name} - (${score} in ${time} seconds) \n`;
+        }
       }
     
       return dataString;
@@ -149,7 +166,8 @@ export async function Process([tally, elapsedseconds, name]) {
       
     }
   }
-  catch {
+  catch (x){
+    console.log(x);
     return "!! Unable to fetch results - this is likely because the rest database I use for storing results has a rate limit and I'm cheap so I've used the free one so Suzanne can have a new kitchen. Try again later !!"
   }
 

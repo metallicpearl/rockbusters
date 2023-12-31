@@ -18,6 +18,7 @@ import rskh from './files/sounds/rsk-008.mp3';
 import rski from './files/sounds/rsk-009.mp3';
 import { dark } from '@mui/material/styles/createPalette';
 import { Process } from './processscores.js';
+import Balancer from 'react-wrap-balancer';
 
 
 
@@ -75,7 +76,7 @@ const nameTextStyle2 = {
 }
 
 const nameTextStyleMobile = {
-  paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bold", fontSize: 22, textRendering: 'optimizeLegibility'
+  paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bold", fontSize: 22, textRendering: 'optimizeLegibility', width:"60%"
 }
 
 
@@ -352,21 +353,25 @@ function App() {
     paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 120, textRendering: 'optimizeLegibility', maxWidth: 100
   }
 
+  const headerTextStyle2Tablet = {
+    paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 90, textRendering: 'optimizeLegibility', maxWidth: 100
+  }
+
   const headerTextStyle2Mobile = {
     paddingLeft: 10, paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 30, textRendering: 'optimizeLegibility', maxWidth: "100%"
   }
 
   const welcomeTextStyle = {
-    paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 30, textRendering: 'optimizeLegibility', maxWidth: 100
+    paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 30, textRendering: 'optimizeLegibility', maxWidth: "100%"
   }
 
   const welcomeTextStyleTablet = {
-    paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 25, textRendering: 'optimizeLegibility', maxWidth: 100
+    paddingRight: 10, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 25, textRendering: 'optimizeLegibility', maxWidth: "100%"
   }
 
 
   const welcomeTextStyleMobile = {
-    paddingRight: 5, paddingeft: 5, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 13, textRendering: 'optimizeLegibility', maxWidth: 100
+    paddingRight: 5, paddingeft: 5, borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bolder", fontSize: 13, textRendering: 'optimizeLegibility', maxWidth: "100%"
   }
  
 
@@ -440,16 +445,13 @@ function App() {
               If you turn on sounds, there are some classic 'annoyed Ricky' moments from the podcasts (basically him berating Karl) which will play as a little reward if you get your question right. <br /> <br />
               You will have 25 questions to answer - there are many more questions than this so if you want to try different questions, refresh the page!<br /><br />
               If you enter your name in the text box before clicking 'START', your score will be recorded and you can view your score amongst your peers at the end IF you make the top 10 :).
-
-
-
             </label>
           </p>
           <span>
             <input id='nameText' onChange={(event) => { nameInput = event.target.value }}
               style={nameStateStyle}>
             </input>
-            <label style={{ marginLeft: 40, whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'lightgreen' : 'green', width: 200, border: '4px dotted', borderColor: buttonIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center' }} onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { startContentHiddenNewState(true); mainContentHiddenNewState(false); secondsElapsed = 0; sound.fade(0.6, 0.0, 3000); }}>
+            <label style={{ marginLeft: 40, whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'lightgreen' : 'green', border: '4px dotted', borderColor: buttonIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center' }} onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { startContentHiddenNewState(true); mainContentHiddenNewState(false); secondsElapsed = 0; sound.fade(0.6, 0.0, 3000); }}>
               {" START "}
             </label>
           </span>
@@ -481,10 +483,14 @@ function App() {
             <label onMouseEnter={handleSubmitButtonHoverIn} onMouseLeave={handlesubmitButtonHoverOut} onClick={async () => { checkAnswer();}} hidden={buttonHideState} style={{ margin: 10, marginInline:5, whiteSpace: 'pre-wrap', borderRadius:5, backgroundColor: submitButtonIsHover ? 'lightgreen' : 'green', border: '4px dotted', borderColor: submitButtonIsHover ? 'lightgreen' : 'green', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: submitButtonIsHover ? 'black' : 'white', alignContent: 'center'}}>
               {" SUBMIT "}
             </label>
+
             <label
               style={answerTextStyle} hidden={showAnswerState} >
               {"Answer: " + "'" + a + "'"}
             </label>
+            <p>
+            --------------------------
+            </p>
             <p>
             <label onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { updateShowAnswerState(false); updateAnswerInputHidden(true); clueHideNewState(true); buttonHideNewState(true); }} hidden={buttonHideState} style={{ whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'tomato' : 'orangered', width: 100, border: '4px dotted', borderColor: buttonIsHover ? 'tomato' : 'orangered', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center', marginInline: 5 }}>
               {" BONG "}
@@ -505,29 +511,30 @@ function App() {
         </span>
 
         <div id="ThankyouContent" hidden={thankyouContentHiddenState} style={{ width: '100%', color: 'black' }}>
+          <span>
           <label style={headerTextStyle2}>
-            THANKYOU FOR PLAYING :)
+            THANKYOU FOR PLAYING :) <br />
           </label>
-
-          <p style={{ padding: 20, marginBottom: 20 }}>
+          </span>
+          <span style={{ padding: 20, marginBottom: 20 }}>
             <label style={welcomeTextStyle}>
               Refresh the page if you want to play again!
             </label>
-          </p>
-        </div>
+          </span>
+        
         <label style={{ fontSize: 4 }}>
           <br />
         </label>
-        <div id="ResultContent" hidden={resultsHiddenState} style={{ fontFamily: "calibri", border: "4px solid", color: 'black', fontWeight: "bolder" }}>
-        <span style={{ width: 1200 }}>
-          <pre style={{ width: 1200,
-             borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 30, textRendering: 'optimizeLegibility'
+        --------------------
+        </div>
+        <div id="ResultContent" hidden={resultsHiddenState} style={{ fontFamily: "calibri", color: 'black', fontWeight: "bolder" }}>
+        <span style={{ width: 1200,
+             borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 30, textRendering: 'optimizeLegibility', whiteSpace: 'pre'
           }}>
             <label style={{borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bold", fontSize: 80, textRendering: 'optimizeLegibility'}}>
               TOP 10 SCORES<br />
             </label>
             {results}
-          </pre>
 
         </span>
 
@@ -604,18 +611,23 @@ function App() {
               type="text" ref={answerInput} onChange={(event) => { updateAnswerState(event.target.value); }} onKeyDown={(event) => { if (event.key == 'Enter') { checkAnswer() }; }}
               style={{ alignContent: 'center', width: "60%", backgroundColor: 'beige', borderRadius:5, border: "2px solid", fontWeight: 'bolder', fontSmooth: 'always', fontFamily: 'Calibri', fontSize: 35}}>
             </input>
-            <label onMouseEnter={handleSubmitButtonHoverIn} onMouseLeave={handlesubmitButtonHoverOut} onClick={async () => { checkAnswer();}} hidden={buttonHideState} style={{ paddingTop: 1, whiteSpace: 'pre-wrap', margin: 5, borderRadius: 5, backgroundColor: submitButtonIsHover ? 'lightgreen' : 'green', width: "30%", border: '5px dotted', borderColor: submitButtonIsHover ? 'lightgreen' : 'green', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 34, fontWeight: 'bolder', color: submitButtonIsHover ? 'black' : 'white', alignContent: 'center' }}>
+            <label onMouseEnter={handleSubmitButtonHoverIn} onMouseLeave={handlesubmitButtonHoverOut} onClick={async () => { checkAnswer();}} hidden={buttonHideState} style={{ paddingTop: 1, whiteSpace: 'pre-wrap', margin: 5, borderRadius: 5, backgroundColor: submitButtonIsHover ? 'lightgreen' : 'green', width: "30%", border: '5px solid', borderColor: submitButtonIsHover ? 'lightgreen' : 'green', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 34, fontWeight: 'bolder', color: submitButtonIsHover ? 'black' : 'white', alignContent: 'center' }}>
               {" SUBMIT "}
             </label>
+
             <label
               style={answerTextStyleTablet} hidden={showAnswerState} >
               {"Answer: " + "'" + a + "'"}
             </label>
             <p>
+            --------------------------
+            </p>
+            <p>
             <span>
             <label onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { updateShowAnswerState(false); updateAnswerInputHidden(true); clueHideNewState(true); buttonHideNewState(true); }} hidden={buttonHideState} style={{ whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'tomato' : 'orangered', width: 100, border: '4px dotted', borderColor: buttonIsHover ? 'tomato' : 'orangered', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center', marginInline: 5 }}>
               {" BONG "}
             </label>
+            
             <label onClick={async () => { addingDots = true;[finalScore, finalTime] = [tallyState, secondsElapsed]; console.log([finalScore, finalTime]); mainContentHiddenNewState(true); startContentHiddenNewState(true); thankyouContentSetHiddenState(false); setResultsHiddenState(false); setResults(await Process([finalScore, finalTime, nameInput])); dotsAdded(".") }} onMouseEnter={handleFinishHoverIn} onMouseLeave={handleFinishHoverOut} hidden={finishButtonHideState} style={{ whiteSpace: 'pre-wrap', marginRight: 20, borderRadius: 5, backgroundColor: finishIsHover ? 'lightgreen' : 'green', width: 100, border: '4px dotted', borderColor: finishIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 35, fontWeight: 'bolder', color: finishIsHover ? 'black' : 'white', alignContent: 'center' }}>
               {" FINISH "}
             </label>
@@ -634,29 +646,31 @@ function App() {
         </span>
 
         <div id="ThankyouContent" hidden={thankyouContentHiddenState} style={{ color: 'black' }}>
-          <label style={headerTextStyle2}>
-            THANKYOU FOR PLAYING :)
+        <span>
+          <label style={headerTextStyle2Tablet}>
+            THANKYOU FOR PLAYING :) <br />
           </label>
-
-          <p style={{ padding: 20, marginBottom: 20 }}>
-            <label style={welcomeTextStyle}>
+          </span>
+          <span style={{ padding: 20, marginBottom: 20 }}>
+            <label style={welcomeTextStyleTablet}>
               Refresh the page if you want to play again!
             </label>
-          </p>
-        </div>
+          </span>
+      
         <label style={{ fontSize: 4 }}>
           <br />
         </label>
-        <div id="ResultContent" hidden={resultsHiddenState} style={{ fontFamily: "calibri", border: "4px solid", color: 'black', fontWeight: "bolder",  width: 768, fontWeight: "bolder"}}>
-        <span>
-        <pre style={{
-             borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 24, textRendering: 'optimizeLegibility'
-          }}>
+
+        --------------------
+        </div>
+        <div id="ResultContent" hidden={resultsHiddenState} style={{ fontFamily: "calibri", color: 'black', fontWeight: "bolder",  width: 768, fontWeight: "bolder"}}>
+        <span style={{
+             borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 24, textRendering: 'optimizeLegibility', whiteSpace: 'pre'}}>
+     
             <label style={{borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bold", fontSize: 38, textRendering: 'optimizeLegibility'}}>
               TOP 10 SCORES<br />
             </label>
             {results}
-          </pre>
         </span>
        
         </div>
@@ -671,7 +685,7 @@ function App() {
 
     <div className="App-mobile" position="fixed">
       <header className="App-header-mobile" >
-        <span id="startContent" hidden={startContentHiddenState} style={{ width: '100%', color: 'black', paddingBottom: 10}}>
+        <span id="startContent" hidden={startContentHiddenState} style={{ width: '90%', color: 'black', flex: 'auto', height: '100%'}}>
           <label style={{ fontSize: "4px" }}>
             <br />
           </label>
@@ -699,7 +713,7 @@ function App() {
             <input id='nameText' onChange={(event) => { nameInput = event.target.value }}
               style={nameTextStyleMobile}>
             </input>
-            <label style={{ marginLeft: 40, whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'lightgreen' : 'green', maxWidth: "60%", border: '4px dotted', borderColor: buttonIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center' }} onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { startContentHiddenNewState(true); mainContentHiddenNewState(false); secondsElapsed = 0; sound.fade(0.6, 0.0, 3000); }}>
+            <label style={{ marginLeft: 40, whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'lightgreen' : 'green', maxWidth: "60%", border: '4px solid', borderColor: buttonIsHover ? 'lightgreen' : 'green', marginInline: 5, fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center' }} onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { startContentHiddenNewState(true); mainContentHiddenNewState(false); secondsElapsed = 0; sound.fade(0.6, 0.0, 3000); }}>
               {" START "}
             </label>
           </span>
@@ -737,6 +751,9 @@ function App() {
               style={answerTextStyleMobile} hidden={showAnswerState}>
               {"Answer: " + "'" + a + "'"}
             </label>
+            <p>
+            ------------------------
+            </p>
             <label onMouseEnter={handleButtonHoverIn} onMouseLeave={handleButtonHoverOut} onClick={() => { updateShowAnswerState(false); updateAnswerInputHidden(true); clueHideNewState(true); buttonHideNewState(true); }} hidden={buttonHideState} style={{ whiteSpace: 'pre-wrap', borderRadius: 5, backgroundColor: buttonIsHover ? 'tomato' : 'orangered', width: 100, border: '4px dotted', borderColor: buttonIsHover ? 'tomato' : 'orangered', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 18, fontWeight: 'bolder', color: buttonIsHover ? 'black' : 'white', alignContent: 'center', marginInline: 5 }}>
               {" BONG "}
             </label>
@@ -755,32 +772,34 @@ function App() {
           </p>
         </span>
 
-        <div id="ThankyouContent" hidden={thankyouContentHiddenState} style={{ maxWidth: "80%", color: 'black' }}>
+        <div id="ThankyouContent" hidden={thankyouContentHiddenState} style={{ maxWidth: "80%", color: 'black'}}>
+        <span>
           <label style={headerTextStyle2Mobile}>
-            THANKYOU FOR PLAYING :)
+            THANKYOU FOR PLAYING :) <br />
           </label>
-
-          <p style={{ paddingLeft: 20, paddingRight: 20, marginBottom:0 }}>
+          </span>
+          <span style={{ padding: 20, marginBottom: 20 }}>
             <label style={welcomeTextStyleMobile}>
               Refresh the page if you want to play again! <br />
             </label>
-          </p>
-        </div>
+          </span>
+
         <label style={{ fontSize: 4 }}>
           <br />
         </label>
-        <div id="ResultContent" hidden={resultsHiddenState} style={{ fontFamily: "calibri", border: "4px solid", maxWidth: "80%", color: 'black', fontWeight: "bolder" }}>
-        <span style={{ maxwidth: "75%" }}>
-          <pre style={{
-             borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 14, textRendering: 'optimizeLegibility'
-          }}>
+
+        --------------------
+        </div>
+
+        <div id="ResultContent" hidden={resultsHiddenState} style={{ fontFamily: "calibri", maxWidth: "80%", color: 'black', fontWeight: "bolder" }}>
+        <span style={{borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 14, textRendering: 'optimizeLegibility', whiteSpace: 'pre'}}>
+
             <label style={{borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bold", fontSize: 28, textRendering: 'optimizeLegibility'}}>
-              TOP 10 SCORES<br />
+              <br /> TOP 10 SCORES <br />
             </label>
-            <span style={{maxWidth: "72%"}}> 
-            {results}
-            </span>
-          </pre>
+          {results}
+
+
 
         </span>
 
@@ -788,7 +807,6 @@ function App() {
 
 
       </header>
-
     </div>
 
   )
@@ -797,14 +815,14 @@ function App() {
 
   const isAppDisabled = window.matchMedia('(min-width: 1366px)').matches;
   const isTabletEnabled = window.matchMedia('(min-width: 768px').matches;
-  const isMobileEnabled = window.matchMedia('(min-width: 320px').matches;
+  const isMobileEnabled = window.matchMedia('(min-width: 240px').matches;
 
   if (!isAppDisabled && !isTabletEnabled && !isMobileEnabled) {
     return [
       <header className="App-header">
         <div>
           <label>
-            Sorry - this page isn't designed for use below 320px.
+            Sorry - this page isn't designed for use below 240px.
           </label>
         </div>
       </header>

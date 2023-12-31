@@ -1,12 +1,18 @@
+html {
+background-color: #b3d2b0;
+}
+
 .App {
+  background-color: #b3d2b0;
   text-align: center;
   user-select: none;
   -webkit-user-drag: none;
-  height: fit-content;
+  height: 100vmin;
 }
 
 
 .App-mobile {
+  background-color: #b3d2b0;
   text-align: center;
   user-select: none;
   -webkit-user-drag: none;
@@ -14,13 +20,14 @@
 }
 
 .App-background {
+  background-color: #b3d2b0;
   min-width: 768px;
   opacity: 70%;
   position:absolute;
   right: 0;
   left: 0;
   top: 0;
-  bottom: 80;
+  margin-bottom: 80;
   margin: auto;
   size: auto;
   padding-top: 0px;
@@ -31,15 +38,13 @@
 
 
 .App-background-mobile {
+  background-color: #b3d2b0;
   opacity: 70%;
-  position:absolute;
   right: 0;
   left: 0;
   top: 0;
-  bottom: 80;
   margin: auto;
   size: auto;
-  padding-top: 0px;
   max-width: 100%;
   -webkit-user-drag: none;
   
@@ -103,11 +108,13 @@
   color: rgb(30, 22, 22);
 }
 
+
+
 .App-header-mobile {
   background-color: #b3d2b0;
   max-width: 100%;
   max-height: 100%;
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
