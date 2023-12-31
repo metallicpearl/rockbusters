@@ -130,7 +130,7 @@ I don't want a house that far away from the water. I want to be right on top of 
 That part of me leg is English. (B) = Britney
 The fitness teacher has got a speech impediment. (KW) = Kanye West (can we rest?)
 Steal that women's flower. (RP) = Robert Plant (rob her plant)
-Keep whacking the cooker with a stick. (It doesn't have to be a stick.) = (B) = Beethoven (beat oven)
+Keep whacking the cooker with a stick. [It doesn't have to be a stick.] = (B) = Beethoven (beat oven)
 Venice. It's all water, innit? How would you describe it? (M) = Morrissey (more is sea)
 That Jamaican fella doesn't want anything. (ND) = Neil Diamond (nil demand)
 I ask them to pass me the ball by using their head. (E) = Editors (head it [to] us)

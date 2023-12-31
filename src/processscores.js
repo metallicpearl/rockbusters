@@ -152,7 +152,7 @@ export async function Process([tally, elapsedseconds, name]) {
         var position = `${x + 1}`
         if (newRow == 'true')
         {
-        dataString += `YOU >> ` + `${position}: ${name} - (${score} in ${time} seconds)` +  ` << YOU \n`;
+        dataString += `YOU >> ` + `${position}: ${name} - (${score} in ${time} seconds)` +  `\n`;
         }
         else
         {

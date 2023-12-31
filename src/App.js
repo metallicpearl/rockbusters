@@ -292,7 +292,7 @@ function App() {
       if (ind > -1) {
         ae = a.split("(")[0].trim();
       }
-      if ((answerHold.toLowerCase() == ae.toLowerCase())) {
+      if ((answerHold.replaceAll("`","").replaceAll("'","").toLowerCase() == ae.replaceAll("`","").replaceAll("'","").toLowerCase())) {
         tallyNewState(tallyState + 1);
 
         handleChange();
@@ -791,13 +791,15 @@ function App() {
         --------------------
         </div>
 
-        <div id="ResultContent" hidden={resultsHiddenState} style={{ fontFamily: "calibri", maxWidth: "80%", color: 'black', fontWeight: "bolder" }}>
-        <span style={{borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 14, textRendering: 'optimizeLegibility', whiteSpace: 'pre'}}>
+        <div id="ResultContent" hidden={resultsHiddenState} style={{ fontFamily: "calibri", maxWidth: "80%", color: 'black', fontWeight: "bolder", flex:'column' }}>
+        <span style={{borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontSize: 12, textRendering: 'optimizeLegibility', whiteSpace: 'pre', alignContent: 'normal', maxWidth: "78%"}}>
 
-            <label style={{borderRadius: 5, color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bold", fontSize: 28, textRendering: 'optimizeLegibility'}}>
+            <label style={{color: 'black', fontFamily: 'Calibri', fontSmooth: 'always', fontWeight: "bold", fontSize: 28, textRendering: 'optimizeLegibility'}}>
               <br /> TOP 10 SCORES <br />
             </label>
+            <text style={{flexDirection: "column"}}>
           {results}
+          </text>
 
 
 
