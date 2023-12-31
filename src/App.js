@@ -571,7 +571,6 @@ function App() {
             <label style={welcomeTextStyle}>
               The 'cryptic' clue given SHOULD refer to a band or artist (except the clues are often rubbish, so good luck). The initials of the artist are also shown to help you but this doesn't always help, sadly.
               When you've written your answer (not case sensitive), click 'SUBMIT' and if you get it right, your score will increase.  If you can't work out an answer, click 'BONG!' - this will reveal it. If you don't know the answer, click the question to skip to the next question.<br /> <br />
-              If you turn on sounds, there are some classic 'annoyed Ricky' moments from the podcasts (basically him berating Karl) which will play as a little reward if you get your question right. <br /> <br />
               You will have 25 questions to answer - there are many more questions than this so if you want to try different questions, refresh the page!<br /><br />
               If you enter your name in the text box before clicking 'START', your score will be recorded and you can view your score amongst your peers at the end IF you make the top 10 :).
 
@@ -704,7 +703,6 @@ function App() {
             <label style={welcomeTextStyleMobile}>
               The 'cryptic' clue given SHOULD refer to a band or artist (except the clues are often rubbish, so good luck). The initials of the artist are also shown to help you but this doesn't always help, sadly.
               When you've written your answer (not case sensitive), click 'SUBMIT' and if you get it right, your score will increase.  If you can't work out an answer, click 'BONG!' - this will reveal it. If you don't know the answer, click the question to skip to the next question.<br /> <br />
-              If you turn on sounds, there are some classic 'annoyed Ricky' moments from the podcasts (basically him berating Karl) which will play as a little reward if you get your question right. <br /> <br />
               You will have 25 questions to answer - there are many more questions than this so if you want to try different questions, refresh the page!<br /><br />
               If you enter your name in the text box before clicking 'START', your score will be recorded and you can view your score amongst your peers at the end IF you make the top 10 :).
             </label>
